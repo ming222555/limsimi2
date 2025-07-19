@@ -14,12 +14,17 @@ export default function Home() {
     <div
       className="h-full"
       style={{
-        backgroundImage: "linear-gradient(to right, red , yellow)",
-        opacity: `${isCover ? null : 0.7}`,
+        backgroundImage: `${
+          isCover
+            ? "linear-gradient(to right, rgba(255,0,0,1) , rgba(255,255,0,1))"
+            : "linear-gradient(to right, rgba(255,0,0,.7) , rgba(255,255,0,.7))"
+        }`,
       }}
     >
       <div
-        className="w-full max-w-[36rem] h-full m-auto text-center"
+        className={`w-full ${
+          isCover ? "max-w-[36rem]" : "max-w-[25rem]"
+        } h-full m-auto text-center`}
         style={{
           backgroundImage: `${isCover ? "url(/landing-page.webp)" : ""}`,
         }}
@@ -43,7 +48,7 @@ export default function Home() {
             </button>
           </Prelude>
         ) : (
-          <Question num={questionNum} />
+          <Question num={questionNum} lastNum={10} />
         )}
       </div>
     </div>
