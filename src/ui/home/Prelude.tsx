@@ -1,12 +1,14 @@
+import QuestionText from "../shared/QuestionText";
+
 export default function Prelude({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col items-center h-full">
-      <p className="text-2xl font-bold pt-12">
+    <>
+      <QuestionText>
         You&lsquo;re walking past your favorite hawker center when you notice an
         uncle at a mysterious stall you&lsquo;ve never seen before. His sign
         reads &ldquo;Mystical Drinks - Find Your True Taste&ldquo;. As you
         approach closer, he winks and the world shimmers...
-      </p>
+      </QuestionText>
       <div className="mx-10 my-6 rounded-lg overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -19,6 +21,6 @@ export default function Prelude({ children }: { children: React.ReactNode }) {
         />
       </div>
       {children}
-    </div>
+    </>
   );
 }

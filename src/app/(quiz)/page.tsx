@@ -4,8 +4,9 @@ import { useState } from "react";
 
 import type { TQuestion } from "../ui/home/QuestionList";
 import Cover from "../../ui/home/Cover";
-/* import Prelude from "../ui/home/Prelude";
-import { MemoisedQuestionList } from "../ui/home/QuestionList";
+import Prelude from "../../ui/home/Prelude";
+import BigButton from "../../ui/shared/BigButton";
+/* import { MemoisedQuestionList } from "../ui/home/QuestionList";
 import RevealDrink from "../ui/home/RevealDrink";
 import DrinkRevealed from "../ui/home/DrinkRevealed";
 
@@ -62,9 +63,19 @@ export default function Home() {
       className={`text-center ${isCover ? "h-full flex flex-col" : "h-auto"}`}
       style={{ border: "4px solid blue" }}
     >
-      <Cover>
-        <button onClick={() => setIsCover(false)}>Take the quiz</button>
-      </Cover>
+      {isCover ? (
+        <Cover>
+          <BigButton className="" onClick={() => setIsCover(false)}>
+            Take the quiz
+          </BigButton>
+        </Cover>
+      ) : (
+        <Prelude>
+          <BigButton className="text-5xl" onClick={() => {}}>
+            Begin Journey!
+          </BigButton>
+        </Prelude>
+      )}
     </article>
   );
 }
