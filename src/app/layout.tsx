@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { roboto } from "../assets/fonts/roboto/fonts";
+import { inter } from "../assets/fonts/inter/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,13 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
+        className="h-full"
         style={{
-          fontFamily: `${roboto.style.fontFamily}`,
+          fontFamily: `${inter.style.fontFamily}`,
         }}
       >
-        <main className="h-full">{children}</main>
+        <div className="h-full bg-blue-300">{children}</div>
       </body>
     </html>
   );

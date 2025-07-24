@@ -4,20 +4,10 @@
   ::before {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
   }
 
   button,
   [role="button"] {
     cursor: pointer;
-  }
-
-  html {
-    @apply h-full;
-  }
-
-  body {
-    @apply bg-gray-100 h-full;
-    box-sizing: border-box;
   }
 }
