@@ -1,10 +1,10 @@
 "use client";
 
-/* import { useState } from "react";
+import { useState } from "react";
 
 import type { TQuestion } from "../ui/home/QuestionList";
-import Cover from "../ui/home/Cover";
-import Prelude from "../ui/home/Prelude";
+import Cover from "../../ui/home/Cover";
+/* import Prelude from "../ui/home/Prelude";
 import { MemoisedQuestionList } from "../ui/home/QuestionList";
 import RevealDrink from "../ui/home/RevealDrink";
 import DrinkRevealed from "../ui/home/DrinkRevealed";
@@ -46,6 +46,7 @@ const questions: TQuestion[] = [
 ]; */
 
 export default function Home() {
+  const [isCover, setIsCover] = useState(true);
   // const [isStartQuestion, setIsStartQuestion] = useState(false);
   // const [isQuestionsCompleted, setIsQuestionsCompleted] = useState(false);
   // const [isDrinkRevealed, setIsDrinkRevealed] = useState(false);
@@ -57,24 +58,13 @@ export default function Home() {
   // }, []);
 
   return (
-    <article className="" style={{ border: "4px solid blue" }}>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
-      <p>Page article</p>
+    <article
+      className={`text-center ${isCover ? "h-full flex flex-col" : "h-auto"}`}
+      style={{ border: "4px solid blue" }}
+    >
+      <Cover>
+        <button onClick={() => setIsCover(false)}>Take the quiz</button>
+      </Cover>
     </article>
   );
 }
