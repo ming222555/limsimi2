@@ -1,4 +1,8 @@
-export default function Cover({ children }: { children: React.ReactNode }) {
+export default function SectionCover({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
       <h1>LimSimi?</h1>

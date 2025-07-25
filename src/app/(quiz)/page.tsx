@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-import type { TQuestion } from "../ui/home/QuestionList";
-import Cover from "../../ui/home/Cover";
-import Prelude from "../../ui/home/Prelude";
+// import type { TQuestion } from "../ui/home/QuestionSheet";
+import SectionCover from "../../ui/home/SectionCover";
+import SectionPrelude from "../../ui/home/SectionPrelude";
 import BigButton from "../../ui/shared/BigButton";
-/* import { MemoisedQuestionList } from "../ui/home/QuestionList";
-import RevealDrink from "../ui/home/RevealDrink";
+import QuestionSheet from "../../ui/home/QuestionSheet";
+/* import RevealDrink from "../ui/home/RevealDrink";
 import DrinkRevealed from "../ui/home/DrinkRevealed";
 
 const questions: TQuestion[] = [
@@ -48,8 +48,8 @@ const questions: TQuestion[] = [
 
 export default function Home() {
   const [isCover, setIsCover] = useState(true);
-  // const [isStartQuestion, setIsStartQuestion] = useState(false);
-  // const [isQuestionsCompleted, setIsQuestionsCompleted] = useState(false);
+  const [isStartQuestion, setIsStartQuestion] = useState(false);
+  const [isQuestionsCompleted, setIsQuestionsCompleted] = useState(false);
   // const [isDrinkRevealed, setIsDrinkRevealed] = useState(false);
   //
   // const onQuestionsCompleted = useMemo(() => {
@@ -60,19 +60,25 @@ export default function Home() {
 
   return (
     <article
-      className={`text-center ${isCover ? "h-full flex flex-col" : "h-auto"}`}
+      className={`text-center pt-4 ${
+        isCover ? "h-full flex flex-col" : "h-auto"
+      }`}
       style={{ border: "4px solid blue" }}
     >
       {isCover ? (
-        <Cover>
+        <SectionCover>
           <BigButton className="self-center" onClick={() => setIsCover(false)}>
             Take the quiz
           </BigButton>
-        </Cover>
+        </SectionCover>
+      ) : !isStartQuestion ? (
+        <SectionPrelude>
+          <BigButton onClick={() => setIsStartQuestion(true)}>
+            Prove it
+          </BigButton>
+        </SectionPrelude>
       ) : (
-        <Prelude>
-          <BigButton onClick={() => {}}>Begin Journey!</BigButton>
-        </Prelude>
+        <QuestionSheet />
       )}
     </article>
   );

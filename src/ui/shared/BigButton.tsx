@@ -7,7 +7,7 @@ export default function BigButton(props: ComponentPropsWithRef<"button">) {
   return (
     <button
       className={
-        "text-3xl bg-amber-300 py-3 px-6 rounded-full " + propsClassName
+        "button text-3xl bg-amber-300 py-3 px-6 rounded-full " + propsClassName
       }
       {...rest}
     >
