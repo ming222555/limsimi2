@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 import BigButton from "../shared/BigButton";
 import QuestionText from "../shared/QuestionText";
@@ -56,7 +56,6 @@ const list: TQuestion[] = [
 
 export default function QuestionSheet() {
   const [idx, setIdx] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
 
   const maxScore = useRef(0);
   const totalScore = useRef(0);
@@ -70,21 +69,11 @@ export default function QuestionSheet() {
     setIdx((prev) => prev + 1);
   }
 
-  function onCompleted() {
-    setIsCompleted(true);
-  }
-
   function onRetakeQuiz() {
     maxScore.current = 0;
     totalScore.current = 0;
     setIdx(0);
   }
-
-  useEffect(() => {
-    if (list.length > 0 && idx === list.length) {
-      onCompleted();
-    }
-  }, [idx]);
 
   return (
     <>
