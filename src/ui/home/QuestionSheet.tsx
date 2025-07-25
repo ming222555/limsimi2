@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import BigButton from "../shared/BigButton";
 import QuestionText from "../shared/QuestionText";
@@ -11,8 +11,8 @@ export type TQuestion = {
   img: string;
   alt: string;
   options: string[];
-  answer: string;
-  score: number;
+  answerAt: number;
+  marks: number;
 };
 
 const list: TQuestion[] = [
@@ -23,8 +23,8 @@ const list: TQuestion[] = [
     img: "/mystical_shop.webp",
     alt: "Question Scene",
     options: ["3", "5", "7", "10"],
-    answer: "7",
-    score: 1,
+    answerAt: 2,
+    marks: 1,
   },
   {
     id: 2,
@@ -34,8 +34,8 @@ const list: TQuestion[] = [
     img: "/mahjong_aunties.webp",
     alt: "Question Scene",
     options: ["Free toy", "Fruit gummies", "Joke slip", "Mini spoon"],
-    answer: "Free toy",
-    score: 1,
+    answerAt: 0,
+    marks: 3,
   },
   {
     id: 3,
@@ -49,8 +49,8 @@ const list: TQuestion[] = [
       "It's blue packaging",
       "It melts in hot water",
     ],
-    answer: "It leaves your fingers bright orange",
-    score: 1,
+    answerAt: 1,
+    marks: 6,
   },
 ];
 
@@ -58,8 +58,26 @@ export default function QuestionSheet() {
   const [idx, setIdx] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
 
+  const maxScore = useRef(0);
+  const totalScore = useRef(0);
+
+  function onQuestionAnswered(
+    marksAwardedByQuestion: number,
+    isCorrectAnswer: boolean
+  ) {
+    maxScore.current += marksAwardedByQuestion;
+    totalScore.current += isCorrectAnswer ? marksAwardedByQuestion : 0;
+    setIdx((prev) => prev + 1);
+  }
+
   function onCompleted() {
     setIsCompleted(true);
+  }
+
+  function onRetakeQuiz() {
+    maxScore.current = 0;
+    totalScore.current = 0;
+    setIdx(0);
   }
 
   useEffect(() => {
@@ -97,7 +115,12 @@ export default function QuestionSheet() {
                   <BigButton
                     key={`${list[idx].id + index}`}
                     className="bg-white"
-                    onClick={() => setIdx((prev) => prev + 1)}
+                    onClick={() =>
+                      onQuestionAnswered(
+                        list[idx].marks,
+                        index === list[idx].answerAt
+                      )
+                    }
                   >
                     <span
                       className="text-wrap"
@@ -111,7 +134,16 @@ export default function QuestionSheet() {
           </div>
         </>
       ) : list.length === 0 ? null : (
-        "Show score card"
+        <div>
+          <p>Show score card</p>
+          <p>Max Score: {maxScore.current}</p>
+          <p>Your Score: {totalScore.current}</p>
+          {maxScore.current === totalScore.current ? (
+            "Good! Full Score"
+          ) : (
+            <button onClick={onRetakeQuiz}>Retake Quiz</button>
+          )}
+        </div>
       )}
     </>
   );
