@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 
-import BigButton from "../shared/BigButton";
-import QuestionText from "../shared/QuestionText";
-import QuestionPict from "../shared/QuestionPict";
+import BigButton from "./BigButton";
+import QuestionText from "./QuestionText";
+import QuestionPict from "./QuestionPict";
 
 export type TQuestion = {
   id: number;

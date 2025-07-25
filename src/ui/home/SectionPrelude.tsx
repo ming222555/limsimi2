@@ -1,5 +1,5 @@
-import QuestionText from "../shared/QuestionText";
-import QuestionPict from "../shared/QuestionPict";
+import QuestionText from "./QuestionText";
+import QuestionPict from "./QuestionPict";
 
 export default function SectionPrelude({
   children,

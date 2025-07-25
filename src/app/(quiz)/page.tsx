@@ -5,7 +5,7 @@ import { useState } from "react";
 // import type { TQuestion } from "../ui/home/QuestionSheet";
 import SectionCover from "../../ui/home/SectionCover";
 import SectionPrelude from "../../ui/home/SectionPrelude";
-import BigButton from "../../ui/shared/BigButton";
+import BigButton from "../../ui/home/BigButton";
 import QuestionSheet from "../../ui/home/QuestionSheet";
 /* import RevealDrink from "../ui/home/RevealDrink";
 import DrinkRevealed from "../ui/home/DrinkRevealed";
@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <article
-      className={`text-center pt-4 ${
+      className={`text-center py-4 ${
         isCover ? "h-full flex flex-col" : "h-auto"
       }`}
       style={{ border: "4px solid blue" }}
