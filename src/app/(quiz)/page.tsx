@@ -65,15 +65,13 @@ export default function Home() {
     >
       {isCover ? (
         <Cover>
-          <BigButton className="" onClick={() => setIsCover(false)}>
+          <BigButton className="self-center" onClick={() => setIsCover(false)}>
             Take the quiz
           </BigButton>
         </Cover>
       ) : (
         <Prelude>
-          <BigButton className="text-5xl" onClick={() => {}}>
-            Begin Journey!
-          </BigButton>
+          <BigButton onClick={() => {}}>Begin Journey!</BigButton>
         </Prelude>
       )}
     </article>
