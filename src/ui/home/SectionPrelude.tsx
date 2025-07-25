@@ -8,11 +8,12 @@ export default function SectionPrelude({
 }) {
   return (
     <>
-      <h1>How Well Do You Know Your Local Snacks?</h1>
+      <h1>Sejauh Mana Anda Kenal Snek Tempatan Anda?</h1>
       <QuestionText className="py-6">
-        From eyeball candies and choco biscuit balls to crunchy keropok warna
-        warni, these snacks shaped our childhoods and there&lsquo;re still
-        stocked in stores today. Think you&lsquo;re a true Malaysian snackkie?
+        Daripada stik coklat hinggalah ke snek sotong, hidangan ini mencorakkan
+        zaman kanak-kanak kita — dan masih boleh didapati di kedai hingga hari
+        ini. Rasa anda seorang penggemar snek Malaysia sejati? Buktikannya
+        sekarang
       </QuestionText>
       <QuestionPict
         src="/uncle_wink.webp"
