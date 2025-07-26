@@ -250,16 +250,6 @@ export default function QuestionSheet() {
           </div>
         </>
       ) : list.length === 0 ? null : (
-        // <div>
-        //   <p>Show score card</p>
-        //   <p>Max Score: {maxScore.current}</p>
-        //   <p>Your Score: {totalScore.current}</p>
-        //   {maxScore.current === totalScore.current ? (
-        //     "Good! Full Score"
-        //   ) : (
-        //     <button onClick={onRetakeQuiz}>Retake Quiz</button>
-        //   )}
-        // </div>
         <>
           <h1>Max Score: {maxScore.current}</h1>
           <h2 className="pt-4">Your Score: {totalScore.current}</h2>
@@ -296,9 +286,11 @@ export default function QuestionSheet() {
                     "Nampaknya dah tiba masa untuk kelas snek! Jangan risau, Ninja Mart ada semua snek ni untuk anda terokai.",
                 })}
           </div>
-          <BigButton className="m-20" onClick={onRetakeQuiz}>
-            Retake Quiz
-          </BigButton>
+          {totalScore.current < maxScore.current ? (
+            <BigButton className="m-20" onClick={onRetakeQuiz}>
+              Retake Quiz
+            </BigButton>
+          ) : null}
           <div className="mt-15">Social here...</div>
         </>
       )}
