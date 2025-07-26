@@ -15,6 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <title>My Page Title</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </head>
       <body
         className="h-full"
         style={{
