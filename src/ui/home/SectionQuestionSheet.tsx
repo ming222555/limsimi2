@@ -208,36 +208,64 @@ function ShareSocial() {
   return isMobile ? (
     <>
       <a
-        href="whatsapp://send?text=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com"
+        href="whatsapp://send?text=https://limsimi2.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
       >
-        [watsapp icon target platform mobile]
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/icons8-whatsapp-48.png"
+          alt="whatsapp share"
+          width={48}
+          height={48}
+          loading="eager"
+        />
       </a>
       <a
-        href="https://www.facebook.com/sharer/sharer.php?u=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://limsimi2.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
       >
-        [fb icon target platform mobile]
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/icons8-facebook-48.png"
+          alt="facebook share"
+          width={48}
+          height={48}
+          loading="eager"
+        />
       </a>
     </>
   ) : (
     <>
       <a
-        href="https://web.whatsapp.com/send?text=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/"
+        href="https://web.whatsapp.com/send?text=https://limsimi2.vercel.app"
         data-action="share/whatsapp/share"
         target="_blank"
         rel="noopener noreferrer"
       >
-        [watsapp icon target platform web]
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/icons8-whatsapp-48.png"
+          alt="whatsapp share"
+          width={48}
+          height={48}
+          loading="eager"
+        />
       </a>
       <a
-        href="https://www.facebook.com/sharer/sharer.php?u=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://limsimi2.vercel.app"
         target="_blank"
         rel="noopener noreferrer"
       >
-        [fb icon target platform web]
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/icons8-facebook-48.png"
+          alt="facebook share"
+          width={48}
+          height={48}
+          loading="eager"
+        />
       </a>
     </>
   );
@@ -292,7 +320,7 @@ export default function SectionQuestionSheet() {
                 list[idx].options.map((option, index) => (
                   <BigButton
                     key={`${list[idx].id + index}`}
-                    className="text-lg bg-white"
+                    className="text-lg bg-white rounded-lg"
                     onClick={() =>
                       onQuestionAnswered(
                         list[idx].marks,
@@ -354,33 +382,6 @@ export default function SectionQuestionSheet() {
             </BigButton>
           ) : null}
           <div className="flex justify-end mx-4">
-            {/* <RWebShare
-              data={{
-                // text: "Like humans, flamingos make friends for life",
-                // url: "https://on.natgeo.com/2zHaNup",
-                text: "Drink kop!",
-                url: "https://limsimi2.vercel.app",
-                title: "Flamingos",
-              }}
-              onClick={() => console.log("shared successfully!")}
-            >
-              <button>Share 🔗</button>
-            </RWebShare> */}
-            {/* <a href="https://www.facebook.com/sharer/sharer.php?u=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/">
-              ___ fb share web ___
-            </a>
-            <a
-              href="https://web.whatsapp.com/send?text=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/"
-              data-action="share/whatsapp/share"
-            >
-              ... Share via Whatsapp web ...
-            </a>
-            <a
-              href="https://api.whatsapp.com/send?text=http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/"
-              data-action="share/whatsapp/share"
-            >
-              ~~~ Share via Whatsapp all platform api ~~~
-            </a> */}
             <ShareSocial />
           </div>
         </>
