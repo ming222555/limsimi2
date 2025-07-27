@@ -13,7 +13,7 @@ export function BackgroundProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [background, setBackground] = useState("");
+  const [background, setBackground] = useState("bg-[url(/snacks.jpg)]");
 
   return (
     <BackgroundContext.Provider value={{ background, setBackground }}>

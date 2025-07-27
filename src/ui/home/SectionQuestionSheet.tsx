@@ -152,6 +152,8 @@ export default function SectionQuestionSheet() {
         if (listBackgrounds[idx]) {
           setBackground(listBackgrounds[idx]);
         }
+      } else {
+        setBackground("bg-[url(/exams-over.jpg)]");
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
