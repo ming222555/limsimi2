@@ -13,10 +13,9 @@ export default function Home() {
 
   return (
     <article
-      className={`text-center py-8 ${
+      className={`text-center pt-8 pb-6 ${
         isCover ? "h-full flex flex-col" : "h-auto"
       }`}
-      style={{ border: "4px solid blue" }}
     >
       {isCover ? (
         <SectionCover>
