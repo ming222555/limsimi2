@@ -28,7 +28,7 @@ function GradeResultMessage({
         className="pt-4 m-auto"
       />
       <p className="h3 pt-4">{grade}</p>
-      <p className="pt-4">{message}</p>
+      <p className="pt-4 px-4">{message}</p>
     </>
   );
 }
