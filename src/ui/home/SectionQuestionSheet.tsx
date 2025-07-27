@@ -176,7 +176,7 @@ export default function SectionQuestionSheet() {
               }}
             />
             <QuestionText
-              className="py-6"
+              className="text-[1.6rem] px-4 py-6"
               dangerouslySetInnerHTML={{
                 __html: list[idx].question,
               }}

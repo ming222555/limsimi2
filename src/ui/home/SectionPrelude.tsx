@@ -8,8 +8,8 @@ export default function SectionPrelude({
 }) {
   return (
     <>
-      <h1>Sejauh Mana Anda Kenal Snek Tempatan Anda?</h1>
-      <QuestionText className="px-4 py-6">
+      <h1 className="px-2">Sejauh Mana Anda Kenal Snek Tempatan Anda?</h1>
+      <QuestionText className="text-[1.6rem] px-4 py-6">
         Daripada stik coklat hinggalah ke snek sotong, hidangan ini mencorakkan
         zaman kanak-kanak kita — dan masih boleh didapati di kedai hingga hari
         ini. Rasa anda seorang penggemar snek Malaysia sejati? Buktikannya
