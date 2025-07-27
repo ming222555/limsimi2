@@ -36,7 +36,8 @@ export default function RootLayout({
           fontFamily: `${inter.style.fontFamily}`,
         }}
       >
-        <div className="h-full bg-blue-200">{children}</div>
+        {/* <div className="h-full bg-blue-200">{children}</div> */}
+        <div className="h-full">{children}</div>
       </body>
     </html>
   );

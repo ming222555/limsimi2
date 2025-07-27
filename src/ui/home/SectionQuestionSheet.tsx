@@ -1,159 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import Image from "next/image";
 
+import { questionlist as list, listBackgrounds } from "../../data/questionlist";
 import BigButton from "./BigButton";
 import QuestionText from "./QuestionText";
 import QuestionPict from "./QuestionPict";
-
-type TQuestion = {
-  id: number;
-  title: string;
-  question: string;
-  img: string;
-  alt: string;
-  options: string[];
-  answerAt: number;
-  marks: number;
-};
-
-const list: TQuestion[] = [
-  {
-    id: 1,
-    title: "Eyeglass Candy",
-    question: "Berapa biji gula-gula terdapat dalam satu pek ‘Eyeglass Candy’?",
-    img: "/mystical_shop.webp",
-    alt: "Question Scene",
-    options: ["3", "5", "7", "10"],
-    answerAt: 2,
-    marks: 1,
-  },
-  {
-    id: 2,
-    title: "Choki Choki",
-    question: "Apa yang benar tentang Choki Choki?",
-    img: "/mahjong_aunties.webp",
-    alt: "Question Scene",
-    options: [
-      "Dibuat daripada chokolat & susu",
-      "Mempunyai tekstur kenyal",
-      "Ia masam",
-      "Berasal dari China",
-    ],
-    answerAt: 0,
-    marks: 1,
-  },
-  {
-    id: 3,
-    title: "Super Ring",
-    question: "Apakah ciri paling ikonik snek Super Ring?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Ia berbentuk seperti cincin",
-      "Ia meninggalkan kesan jingga terang pada jari anda",
-      "Pembungkusnya berwarna biru",
-      "Ia cair dalam air panas",
-    ],
-    answerAt: 1,
-    marks: 1,
-  },
-  {
-    id: 4,
-    title: "Julie’s Peanut Butter Sandwich",
-    question: "Apa yang menjadikan Julie’s Peanut Butter Sandwich ikonik?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Bentuk segi empat",
-      "Lapisan inti berganda",
-      "Salut coklat",
-      "Tanpa gula",
-    ],
-    answerAt: 1,
-    marks: 1,
-  },
-  {
-    id: 5,
-    title: "Yupi Burger",
-    question: "Apakah “ramuan” yang membentuk Yupi Burger?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Roti, udang, keju, selada",
-      "Roti, patty, cendawan, keju, selada",
-      "Roti, patty, tomato, keju, rumpai laut",
-      "Roti, patty, keju, selada",
-    ],
-    answerAt: 3,
-    marks: 1,
-  },
-  {
-    id: 6,
-    title: "Biskuit Ais Jem",
-    question: "Dari mana asal biskut ais jem yang popular?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: ["England", "Indonesia", "Sepanyol", "Thailand"],
-    answerAt: 0,
-    marks: 1,
-  },
-  {
-    id: 7,
-    title: "Haw Flakes",
-    question:
-      "Apakah kegunaan tradisional hawthorn dalam snek perubatan Cina seperti haw flakes?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Merawat sakit tekak",
-      "Membantu pencernaan",
-      "Merawat sakit kepala",
-      "Meningkatkan pendengaran",
-    ],
-    answerAt: 1,
-    marks: 1,
-  },
-  {
-    id: 8,
-    title: "Oreo Vanilla",
-    question: "Apakah cara klasik untuk makan Oreo?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Celup, Kunyah, Celup",
-      "Hancur, Tabur, Jilat",
-      "Putar, Jilat, Celup",
-      "Patah, Gigit, Tiup",
-    ],
-    answerAt: 2,
-    marks: 1,
-  },
-  {
-    id: 9,
-    title: "BIKA Keropok Berperisa Ayam",
-    question: "Apakah tekstur unik keropok BIKA?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: [
-      "Gebu",
-      "Ringan & rangup",
-      "Lembut dan dibakar",
-      "Rata dan bulat",
-    ],
-    answerAt: 1,
-    marks: 1,
-  },
-  {
-    id: 10,
-    title: "Miaow Miaow Snek Sotong",
-    question: "Apakah rasa khas Miaow Miaow Sotong?",
-    img: "/merlion_quiz.webp",
-    alt: "Question Scene",
-    options: ["Kari pedas", "Manis dan masin", "Keju", "Mentega bawang putih"],
-    answerAt: 1,
-    marks: 1,
-  },
-];
+import BackgroundContext from "../../context/BackgroundContext";
 
 function GradeResultMessage({
   src,
@@ -277,6 +129,8 @@ export default function SectionQuestionSheet() {
   const maxScore = useRef(0);
   const totalScore = useRef(0);
 
+  const { setBackground } = useContext(BackgroundContext);
+
   function onQuestionAnswered(
     marksAwardedByQuestion: number,
     isCorrectlyAnswered: boolean
@@ -292,12 +146,23 @@ export default function SectionQuestionSheet() {
     setIdx(0);
   }
 
+  useEffect(() => {
+    if (list.length) {
+      if (idx < list.length) {
+        if (listBackgrounds[idx]) {
+          setBackground(listBackgrounds[idx]);
+        }
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx]);
+
   return (
     <>
       {!!list.length && !!(idx < list.length) ? (
         <>
           <div className="fixed left-0 pl-6 -translate-y-8 text-xl">
-            <span>
+            <span className="p-[4px] text-white bg-black">
               Q{idx + 1}/{list.length}
             </span>
           </div>
@@ -320,7 +185,7 @@ export default function SectionQuestionSheet() {
                 list[idx].options.map((option, index) => (
                   <BigButton
                     key={`${list[idx].id + index}`}
-                    className="text-lg bg-white rounded-lg"
+                    className="text-lg bg-gray-300 rounded-lg"
                     onClick={() =>
                       onQuestionAnswered(
                         list[idx].marks,

@@ -1,3 +1,6 @@
+import BackgroundSection from "../../ui/layout/BackgroundSection";
+import { BackgroundProvider } from "../../context/BackgroundContext";
+
 export default function QuizLayout({
   children,
 }: Readonly<{
@@ -6,12 +9,15 @@ export default function QuizLayout({
   return (
     <>
       {/* <Nav /> */}
-      <main
-        className="w-[30rem] max-w-[30rem] h-full mx-auto"
-        style={{ border: "6px solid yellow" }}
-      >
-        {children}
-      </main>
+      <BackgroundProvider>
+        <BackgroundSection />
+        <main
+          className="w-[30rem] max-w-[30rem] h-full mx-auto bg-[rgba(255,255,255,0.92)]"
+          style={{ border: "6px solid yellow" }}
+        >
+          {children}
+        </main>
+      </BackgroundProvider>
       {/* <Footer /> */}
     </>
   );
