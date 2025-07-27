@@ -11,7 +11,7 @@ export default function QuizLayout({
       {/* <Nav /> */}
       <BackgroundProvider>
         <BackgroundSection />
-        <main className="w-[25rem] max-w-[25rem] h-full mx-auto bg-[rgba(255,255,255,0.92)]">
+        <main className="w-[24rem] max-w-[24rem] h-full mx-auto bg-[rgba(255,255,255,0.92)]">
           {children}
         </main>
       </BackgroundProvider>
