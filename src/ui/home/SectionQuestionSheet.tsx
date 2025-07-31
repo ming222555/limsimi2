@@ -1,11 +1,31 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import Image from "next/image";
 
-import { questionlist as list, listBackgrounds } from "../../data/questionlist";
+import {
+  questionlist as list /* , listBackgrounds */,
+} from "../../data/questionlist";
 // import BigButton from "./BigButton";
 // import QuestionText from "./QuestionText";
 // import QuestionPict from "./QuestionPict";
-import BackgroundContext from "../../context/BackgroundContext";
+///////////// import BackgroundContext from "../../context/BackgroundContext";
+
+const optionSelectedlist: number[] = Array(list.length).fill(-1);
+
+const MAX_SCORE = list.reduce<number>(
+  (accum, question) => accum + question.marks,
+  0
+);
+
+function computeTotalScore() {
+  const totalScore = list.reduce<number>(
+    (accum, question, idx) =>
+      optionSelectedlist[idx] === question.answerAt
+        ? accum + question.marks
+        : accum,
+    0
+  );
+  return totalScore;
+}
 
 function GradeResult({ score }: { score: number }) {
   return (
@@ -170,38 +190,39 @@ function ShareSocial() {
 export default function SectionQuestionSheet() {
   const [idx, setIdx] = useState(0);
 
-  const maxScore = useRef(0);
   const totalScore = useRef(0);
 
-  const { setBackground } = useContext(BackgroundContext);
+  /////////////  const { setBackground } = useContext(BackgroundContext);
 
-  function onQuestionAnswered(
-    marksAwardedByQuestion: number,
-    isCorrectlyAnswered: boolean
-  ) {
-    maxScore.current += marksAwardedByQuestion;
-    totalScore.current += isCorrectlyAnswered ? marksAwardedByQuestion : 0;
-    setIdx((prev) => prev + 1);
+  function onOptionSelected(questionNum: number, option: number) {
+    optionSelectedlist[questionNum] = option;
   }
 
   function onRetakeQuiz() {
-    maxScore.current = 0;
+    for (let i = 0; i < optionSelectedlist.length; i++) {
+      optionSelectedlist[i] = -1;
+    }
     totalScore.current = 0;
     setIdx(0);
   }
 
-  useEffect(() => {
-    if (list.length) {
-      if (idx < list.length) {
-        if (listBackgrounds[idx]) {
-          setBackground(listBackgrounds[idx]);
-        }
-      } else {
-        setBackground("bg-[url(/exams-over.jpg)]");
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idx]);
+  // useEffect(() => {
+  //   if (list.length) {
+  //     if (idx < list.length) {
+  //       if (listBackgrounds[idx]) {
+  //         setBackground(listBackgrounds[idx]);
+  //       }
+  //     } else {
+  //       setBackground("bg-[url(/exams-over.jpg)]");
+  //     }
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [idx]);
+
+  if (list.length && idx === list.length) {
+    // last question has been answered
+    totalScore.current = computeTotalScore();
+  }
 
   return (
     <>
@@ -212,7 +233,11 @@ export default function SectionQuestionSheet() {
             Q{idx + 1}/{list.length}
           </span>
         </div> */}
-          <div className="absolute top-0 left-0">
+          <div
+            className={`${
+              idx <= 0 ? "hidden" : "block"
+            } absolute top-0 left-0 translate-y-[50%]`}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Arrow-5@3x.png"
@@ -220,11 +245,16 @@ export default function SectionQuestionSheet() {
               width={25}
               height={25}
               loading="eager"
-              className="translate-y-[50%]"
+              role="button"
               style={{ outline: "1px solid green" }}
+              onClick={() => setIdx((prev) => prev - 1)}
             />
           </div>
-          <div className="absolute top-0 right-0">
+          <div
+            className={`${
+              idx >= list.length ? "hidden" : "block"
+            } absolute top-0 right-0 translate-y-[50%]`}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Arrow-4@3x.png"
@@ -232,8 +262,9 @@ export default function SectionQuestionSheet() {
               width={25}
               height={30}
               loading="eager"
-              className="translate-y-[50%]"
+              role="button"
               style={{ outline: "1px solid green" }}
+              onClick={() => setIdx((prev) => prev + 1)}
             />
           </div>
           {/* <div className="flex flex-col items-center h-full bg-amber-500"> */}
@@ -280,12 +311,7 @@ export default function SectionQuestionSheet() {
                   <button
                     key={`${list[idx].id + index}`}
                     className="text-lg bg-gray-300 rounded-lg"
-                    onClick={() =>
-                      onQuestionAnswered(
-                        list[idx].marks,
-                        index === list[idx].answerAt
-                      )
-                    }
+                    onClick={() => onOptionSelected(idx, index)}
                   >
                     <span
                       className="text-wrap"
@@ -300,10 +326,10 @@ export default function SectionQuestionSheet() {
         </>
       ) : list.length === 0 ? null : (
         <>
-          <h1>Max Score: {maxScore.current}</h1>
+          <h1>Max Score: {MAX_SCORE}</h1>
           <h2 className="">Your Score: {totalScore.current}</h2>
           <GradeResult score={totalScore.current} />
-          {totalScore.current < maxScore.current ? (
+          {totalScore.current < MAX_SCORE ? (
             <button className="" onClick={onRetakeQuiz}>
               Retake Quiz
             </button>
@@ -311,6 +337,7 @@ export default function SectionQuestionSheet() {
           <div className="flex justify-end">
             <ShareSocial />
           </div>
+          {optionSelectedlist}
         </>
       )}
     </>

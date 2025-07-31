@@ -5,7 +5,7 @@ import { useState } from "react";
 // import SectionCover from "../../ui/home/SectionCover";
 import SectionPrelude from "../../ui/home/SectionPrelude";
 import SectionQuestionSheet from "../../ui/home/SectionQuestionSheet";
-import BigButton from "../../ui/home/BigButton";
+// import BigButton from "../../ui/home/BigButton";
 
 export default function Home() {
   const [isStartQuestion, setIsStartQuestion] = useState(false);
