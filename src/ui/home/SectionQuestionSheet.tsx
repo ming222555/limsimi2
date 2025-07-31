@@ -2,34 +2,78 @@ import { useState, useRef, useEffect, useContext } from "react";
 import Image from "next/image";
 
 import { questionlist as list, listBackgrounds } from "../../data/questionlist";
-import BigButton from "./BigButton";
-import QuestionText from "./QuestionText";
-import QuestionPict from "./QuestionPict";
+// import BigButton from "./BigButton";
+// import QuestionText from "./QuestionText";
+// import QuestionPict from "./QuestionPict";
 import BackgroundContext from "../../context/BackgroundContext";
 
-function GradeResultMessage({
-  src,
-  alt,
-  grade,
-  message,
-}: {
-  src: string;
-  alt: string;
-  grade: string;
-  message: string;
-}) {
+function GradeResult({ score }: { score: number }) {
   return (
-    <>
-      <Image
-        src={src}
-        alt={alt}
-        width={100}
-        height={100}
-        className="pt-4 m-auto"
-      />
-      <p className="h3 pt-4">{grade}</p>
-      <p className="pt-4">{message}</p>
-    </>
+    <div>
+      {score > 8 ? (
+        <>
+          <Image
+            src="/trophy-svgrepo-com.svg"
+            alt="Trophy for excellent grade"
+            width={100}
+            height={100}
+            className="m-auto"
+          />
+          <p className="h3">Snek Legenda</p>
+          <p className="">
+            Anda memang kenal keropok dan sotong anda, dan boleh beza antara
+            snek zaman kanak-kanak dengan yang moden. Anda memang pakar snek
+            Malaysia sejati. Restock dengan Ninja Mart sekarang!
+          </p>
+        </>
+      ) : score > 5 ? (
+        <>
+          <Image
+            src="/cookie-svgrepo-com.svg"
+            alt="Cookie for good grade"
+            width={100}
+            height={100}
+            className="m-auto"
+          />
+          <p className="h3">Pakar Snek</p>
+          <p className="">
+            Jelas sekali anda membesar dengan snek kegemaran ni. Anda memang
+            tahu mana satu yang padu — tinggal beberapa gigitan lagi untuk capai
+            tahap ‘OG’. Terokai senarai penuh snek dan manisan di Ninja Mart
+          </p>
+        </>
+      ) : score > 2 ? (
+        <>
+          <Image
+            src="/confused-emoji-svgrepo-com.svg"
+            alt="Puzzled expression for average grade"
+            width={100}
+            height={100}
+            className="m-auto"
+          />
+          <p className="h3">Penjelajah Snek</p>
+          <p className="">
+            Anda dah rasa beberapa snek klasik, tapi skill snek anda masih boleh
+            diasah. Jom terokai senarai penuh snek dan manisan di Ninja Mart!
+          </p>
+        </>
+      ) : (
+        <>
+          <Image
+            src="/happy-emoji-svgrepo-com.svg"
+            alt="Happy expression for poor grade"
+            width={100}
+            height={100}
+            className="m-auto"
+          />
+          <p className="h3">Noob Snek</p>
+          <p className="">
+            Nampaknya dah tiba masa untuk kelas snek! Jangan risau, Ninja Mart
+            ada semua snek ni untuk anda terokai.
+          </p>
+        </>
+      )}
+    </div>
   );
 }
 
@@ -163,29 +207,77 @@ export default function SectionQuestionSheet() {
     <>
       {!!list.length && !!(idx < list.length) ? (
         <>
-          <div className="fixed left-0 pl-6 -translate-y-8 text-xl">
-            <span className="p-[4px] text-white bg-black">
-              Q{idx + 1}/{list.length}
-            </span>
+          {/* <div className="fixed left-0 pl-6 -translate-y-8 text-xl">
+          <span className="p-[4px] text-white bg-black">
+            Q{idx + 1}/{list.length}
+          </span>
+        </div> */}
+          <div className="absolute top-0 left-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Arrow-5@3x.png"
+              alt="left arrow"
+              width={25}
+              height={25}
+              loading="eager"
+              className="translate-y-[50%]"
+              style={{ outline: "1px solid green" }}
+            />
           </div>
-          <div className="flex flex-col items-center h-full">
-            <h1
+          <div className="absolute top-0 right-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/Arrow-4@3x.png"
+              alt="right arrow"
+              width={25}
+              height={30}
+              loading="eager"
+              className="translate-y-[50%]"
+              style={{ outline: "1px solid green" }}
+            />
+          </div>
+          {/* <div className="flex flex-col items-center h-full bg-amber-500"> */}
+          <div className="flex flex-col items-center bg-amber-500">
+            {/* <h1
               className="h2"
               dangerouslySetInnerHTML={{
                 __html: list[idx].title,
               }}
-            />
-            <QuestionText
+            /> */}
+            <div
+              className="rounded-lg overflow-hidden"
+              style={{ outline: "2px solid yellow" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={list[idx].img}
+                alt={list[idx].alt}
+                width={0}
+                height={0}
+                loading="eager"
+                className="w-full h-auto bg-blue-100"
+              />
+            </div>
+            {/* <QuestionPict src={list[idx].img} alt={list[idx].alt} /> */}
+            {/* <QuestionText
               className="py-6"
               dangerouslySetInnerHTML={{
                 __html: list[idx].question,
               }}
+            /> */}
+            <p
+              className="bg-green-100"
+              dangerouslySetInnerHTML={{
+                __html: list[idx].question,
+              }}
             />
-            <QuestionPict src={list[idx].img} alt={list[idx].alt} />
-            <div className="self-stretch flex flex-col px-10 gap-3">
+            <div
+              className="flex flex-col gap-3"
+              style={{ outline: "6px solid black" }}
+            >
               {!!list[idx].options.length &&
                 list[idx].options.map((option, index) => (
-                  <BigButton
+                  <button
                     key={`${list[idx].id + index}`}
                     className="text-lg bg-gray-300 rounded-lg"
                     onClick={() =>
@@ -201,7 +293,7 @@ export default function SectionQuestionSheet() {
                         __html: option,
                       }}
                     ></span>
-                  </BigButton>
+                  </button>
                 ))}
             </div>
           </div>
@@ -209,46 +301,14 @@ export default function SectionQuestionSheet() {
       ) : list.length === 0 ? null : (
         <>
           <h1>Max Score: {maxScore.current}</h1>
-          <h2 className="pt-4">Your Score: {totalScore.current}</h2>
-          <div className="pt-4">
-            {totalScore.current > 8
-              ? GradeResultMessage({
-                  src: "/trophy-svgrepo-com.svg",
-                  alt: "Trophy for excellent grade",
-                  grade: "Snek Legenda",
-                  message:
-                    "Anda memang kenal keropok dan sotong anda, dan boleh beza antara snek zaman kanak-kanak dengan yang moden. Anda memang pakar snek Malaysia sejati. Restock dengan Ninja Mart sekarang!",
-                })
-              : totalScore.current > 5
-              ? GradeResultMessage({
-                  src: "/cookie-svgrepo-com.svg",
-                  alt: "Cookie for good grade",
-                  grade: "Pakar Snek",
-                  message:
-                    "Jelas sekali anda membesar dengan snek kegemaran ni. Anda memang tahu mana satu yang padu — tinggal beberapa gigitan lagi untuk capai tahap ‘OG’. Terokai senarai penuh snek dan manisan di Ninja Mart",
-                })
-              : totalScore.current > 2
-              ? GradeResultMessage({
-                  src: "/confused-emoji-svgrepo-com.svg",
-                  alt: "Puzzled expression for average grade",
-                  grade: "Penjelajah Snek",
-                  message:
-                    "Anda dah rasa beberapa snek klasik, tapi skill snek anda masih boleh diasah. Jom terokai senarai penuh snek dan manisan di Ninja Mart!",
-                })
-              : GradeResultMessage({
-                  src: "/happy-emoji-svgrepo-com.svg",
-                  alt: "Happy expression for poor grade",
-                  grade: "Noob Snek",
-                  message:
-                    "Nampaknya dah tiba masa untuk kelas snek! Jangan risau, Ninja Mart ada semua snek ni untuk anda terokai.",
-                })}
-          </div>
+          <h2 className="">Your Score: {totalScore.current}</h2>
+          <GradeResult score={totalScore.current} />
           {totalScore.current < maxScore.current ? (
-            <BigButton className="m-20" onClick={onRetakeQuiz}>
+            <button className="" onClick={onRetakeQuiz}>
               Retake Quiz
-            </BigButton>
+            </button>
           ) : null}
-          <div className="flex justify-end mx-4">
+          <div className="flex justify-end">
             <ShareSocial />
           </div>
         </>

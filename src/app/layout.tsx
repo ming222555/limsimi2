@@ -36,7 +36,12 @@ export default function RootLayout({
           fontFamily: `${inter.style.fontFamily}`,
         }}
       >
-        <div className="h-full">{children}</div>
+        <div
+          style={{ background: "lightgreen" }}
+          className="w-[30rem] max-w-[30rem] h-full mx-auto relative"
+        >
+          {children}
+        </div>
       </body>
     </html>
   );

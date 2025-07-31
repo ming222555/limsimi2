@@ -30,7 +30,7 @@ export const questionlist: TQuestion[] = [
     options: ["3", "5", "7", "10"],
     answerAt: 2,
     marks: 1,
-    img: "/mystical_shop.webp",
+    img: "/Oreo image.png",
     alt: "Question Scene",
   },
   {

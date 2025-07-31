@@ -13,9 +13,8 @@ export default function Home() {
 
   return (
     <article
-      className={`text-center pt-8 pb-6 ${
-        isCover ? "h-full flex flex-col" : "h-auto"
-      }`}
+      className={`text-center ${isCover ? "h-full flex flex-col" : "h-auto"}`}
+      style={{ outline: "11px solid green" }}
     >
       {isCover ? (
         <SectionCover>
