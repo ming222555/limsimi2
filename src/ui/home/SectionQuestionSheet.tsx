@@ -191,6 +191,7 @@ export default function SectionQuestionSheet() {
   const [idx, setIdx] = useState(0);
 
   const totalScore = useRef(0);
+  const isViewSubmittedAnswers = useRef(false);
 
   /////////////  const { setBackground } = useContext(BackgroundContext);
 
@@ -198,11 +199,17 @@ export default function SectionQuestionSheet() {
     optionSelectedlist[questionNum] = option;
   }
 
+  function onViewSubmittedAnswers() {
+    isViewSubmittedAnswers.current = true;
+    setIdx(0);
+  }
+
   function onRetakeQuiz() {
     for (let i = 0; i < optionSelectedlist.length; i++) {
       optionSelectedlist[i] = -1;
     }
     totalScore.current = 0;
+    isViewSubmittedAnswers.current = false;
     setIdx(0);
   }
 
@@ -307,20 +314,39 @@ export default function SectionQuestionSheet() {
               style={{ outline: "6px solid black" }}
             >
               {!!list[idx].options.length &&
-                list[idx].options.map((option, index) => (
-                  <button
-                    key={`${list[idx].id + index}`}
-                    className="text-lg bg-gray-300 rounded-lg"
-                    onClick={() => onOptionSelected(idx, index)}
-                  >
-                    <span
-                      className="text-wrap"
-                      dangerouslySetInnerHTML={{
-                        __html: option,
-                      }}
-                    ></span>
-                  </button>
-                ))}
+                list[idx].options.map((option, index) =>
+                  !isViewSubmittedAnswers.current ? (
+                    <button
+                      key={`${list[idx].id + index}`}
+                      className="text-lg bg-gray-300 rounded-lg"
+                      onClick={() => onOptionSelected(idx, index)}
+                    >
+                      <span
+                        className="text-wrap"
+                        dangerouslySetInnerHTML={{
+                          __html: option,
+                        }}
+                      ></span>
+                    </button>
+                  ) : (
+                    <button
+                      key={`${list[idx].id + index}`}
+                      className="text-lg bg-gray-300 rounded-lg cursor-not-allowed"
+                      disabled
+                    >
+                      <span
+                        className={`text-wrap text-3xl ${
+                          index === list[idx].answerAt ? "underline" : ""
+                        } ${
+                          index === optionSelectedlist[idx] ? "bg-blue-400" : ""
+                        } cursor-not-allowed`}
+                        dangerouslySetInnerHTML={{
+                          __html: option,
+                        }}
+                      ></span>
+                    </button>
+                  )
+                )}
             </div>
           </div>
         </>
@@ -337,7 +363,8 @@ export default function SectionQuestionSheet() {
           <div className="flex justify-end">
             <ShareSocial />
           </div>
-          {optionSelectedlist}
+          <button onClick={onViewSubmittedAnswers}>ViewSubmittedAnswers</button>
+          <div>{optionSelectedlist}</div>
         </>
       )}
     </>
