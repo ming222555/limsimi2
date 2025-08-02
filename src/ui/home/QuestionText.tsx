@@ -7,7 +7,10 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
   return (
     // <p className={"text-3xl text-[#ffffff] " + propsClassName} {...rest}>
     <p
-      className={"text-xl font-bold text-black relative " + propsClassName}
+      className={
+        "text-xl font-bold text-[#000000] bg-[#ffffff] relative " +
+        propsClassName
+      }
       {...rest}
       style={{
         border: "2px solid #7bb0d8",
