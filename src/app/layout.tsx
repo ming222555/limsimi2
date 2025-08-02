@@ -46,7 +46,7 @@ export default function RootLayout({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/ninjamart-van-on-road.png"
-              alt="circuit"
+              alt="ninjamart van on road"
               width={0}
               height={0}
               loading="eager"

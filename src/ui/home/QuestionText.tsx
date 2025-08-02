@@ -20,14 +20,12 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/question-mark.png"
+        src="/images/question_mark.png"
         alt="question mark"
         width={0}
         height={0}
         loading="eager"
-        className="w-[3.6rem] h-[3.6rem] absolute top-0 left-0 -translate-[50%]"
-        /* bg-blue-100 */
-        // style={{ outline: "1px solid blue" }}
+        className="w-[3.6rem] h-auto absolute top-0 left-0 -translate-[50%]"
       />
       {children}
     </p>

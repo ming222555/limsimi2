@@ -12,7 +12,7 @@ export default function QuizLayout({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/Logo_NJM@3x.png"
-          alt="ninjamart"
+          alt="ninjamart logo"
           width={100}
           height={70}
           loading="eager"

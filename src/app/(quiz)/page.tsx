@@ -38,12 +38,23 @@ export default function Home() {
       {/* article h-full */}
       {!isStartQuestion ? (
         <SectionPrelude>
-          <button
+          {/* <button
             className="text-3xl font-bold text-[#f06a69] bg-[#fcf8f5] shadow-[0_8px_8px_rgba(0,0,0,0.25)] self-center px-12 py-3 mt-5 rounded-full"
             onClick={() => setIsStartQuestion(true)}
           >
             MULA
-          </button>
+          </button> */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/mula.png"
+            alt="start"
+            width={0}
+            height={0}
+            loading="eager"
+            className="w-[12rem] h-auto mx-auto mt-6"
+            role="button"
+            onClick={() => setIsStartQuestion(true)}
+          />
         </SectionPrelude>
       ) : (
         <SectionQuestionSheet />
