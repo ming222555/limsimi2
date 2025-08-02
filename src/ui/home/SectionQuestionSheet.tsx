@@ -130,7 +130,7 @@ function ShareSocial() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/icons8-whatsapp-48.png"
+          src="/images/icons8-whatsapp-48.png"
           alt="whatsapp share"
           width={48}
           height={48}
@@ -144,7 +144,7 @@ function ShareSocial() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/icons8-facebook-48.png"
+          src="/images/icons8-facebook-48.png"
           alt="facebook share"
           width={48}
           height={48}
@@ -162,7 +162,7 @@ function ShareSocial() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/icons8-whatsapp-48.png"
+          src="/images/icons8-whatsapp-48.png"
           alt="whatsapp share"
           width={48}
           height={48}
@@ -176,7 +176,7 @@ function ShareSocial() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/icons8-facebook-48.png"
+          src="/images/icons8-facebook-48.png"
           alt="facebook share"
           width={48}
           height={48}
@@ -247,7 +247,7 @@ export default function SectionQuestionSheet() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Arrow-5@3x.png"
+              src="/images/Arrow-5@3x.png"
               alt="left arrow"
               width={25}
               height={25}
@@ -264,7 +264,7 @@ export default function SectionQuestionSheet() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/Arrow-4@3x.png"
+              src="/images/Arrow-4@3x.png"
               alt="right arrow"
               width={25}
               height={30}

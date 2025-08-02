@@ -31,16 +31,28 @@ export default function RootLayout({
         <meta property="og:url" content="https://limsimi2.vercel.app/" />
       </head>
       <body
-        className="h-full"
+        className="h-full bg-[url(/images/Background@3x.png)]"
         style={{
           fontFamily: `${inter.style.fontFamily}`,
         }}
       >
         <div
-          style={{ background: "lightgreen" }}
+          style={{ background: "rgba(0,255,0,.25)" }}
           className="w-[30rem] max-w-[30rem] h-full mx-auto relative"
         >
           {children}
+          <footer className="fixed bottom-0 w-[30rem] bg-amber-100 -z-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/ninjamart-van-on-road.png"
+              alt="circuit"
+              width={0}
+              height={0}
+              loading="eager"
+              className="w-full h-auto"
+              style={{ outline: "1px solid blue" }}
+            />
+          </footer>
         </div>
       </body>
     </html>
