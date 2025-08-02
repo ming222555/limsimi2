@@ -337,7 +337,7 @@ export default function SectionQuestionSheet() {
                     onClick={() => onOptionSelected(idx, index)}
                   >
                     <div className="flex items-center justify-center w-[1.5rem] h-[1.5rem] m-[4px] rounded-full bg-[#b6d5c3]">
-                      <div className="flex items-center justify-center w-[1rem] h-[1rem] font-bold rounded-full bg-[#b6d5c3]">
+                      <div className="flex items-center justify-center w-[1rem] h-[1rem] font-extrabold rounded-full bg-[#b6d5c3]">
                         {index === 0
                           ? "A"
                           : index === 1
