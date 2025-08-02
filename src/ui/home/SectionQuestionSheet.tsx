@@ -243,7 +243,7 @@ export default function SectionQuestionSheet() {
           <div
             className={`${
               idx <= 0 ? "hidden" : "block"
-            } absolute top-0 left-0 translate-y-[50%]`}
+            } absolute top-0 left-0 translate-y-[100%]`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -253,14 +253,14 @@ export default function SectionQuestionSheet() {
               height={25}
               loading="eager"
               role="button"
-              style={{ outline: "1px solid green" }}
+              // style={{ outline: "1px solid green" }}
               onClick={() => setIdx((prev) => prev - 1)}
             />
           </div>
           <div
             className={`${
               idx >= list.length ? "hidden" : "block"
-            } absolute top-0 right-0 translate-y-[50%]`}
+            } absolute top-0 right-0 translate-y-[100%]`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -270,7 +270,7 @@ export default function SectionQuestionSheet() {
               height={30}
               loading="eager"
               role="button"
-              style={{ outline: "1px solid green" }}
+              // style={{ outline: "1px solid green" }}
               onClick={() => setIdx((prev) => prev + 1)}
             />
           </div>
