@@ -39,7 +39,7 @@ export default function Home() {
       {!isStartQuestion ? (
         <SectionPrelude>
           <button
-            className="text-3xl font-bold text-orange-600 bg-amber-50 self-center px-12 py-3 mt-5 rounded-full"
+            className="text-3xl font-bold text-[#f06a69] bg-[#fcf8f5] shadow-[0_8px_8px_rgba(0,0,0,0.25)] self-center px-12 py-3 mt-5 rounded-full"
             onClick={() => setIsStartQuestion(true)}
           >
             MULA

@@ -25,7 +25,7 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
         width={0}
         height={0}
         loading="eager"
-        className="w-[3rem] h-[3rem] absolute top-0 left-0 -translate-[50%]"
+        className="w-[3.6rem] h-[3.6rem] absolute top-0 left-0 -translate-[50%]"
         /* bg-blue-100 */
         // style={{ outline: "1px solid blue" }}
       />

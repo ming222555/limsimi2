@@ -19,7 +19,7 @@ export default function SectionPrelude({
         // style={{ outline: "1px solid blue" }}
       />
       {/* <QuestionText className="self-center box-content w-[15rem] px-6 py-3 mt-3 mb-6"> */}
-      <QuestionText className="self-center box-content w-[15rem] px-6 py-3">
+      <QuestionText className="self-center box-content w-[15rem] px-6 py-3 mt-2">
         SEJAUH MANA ANDA KENAL SNEK TEMPATAN ANDA?
       </QuestionText>
       {/* <h1>Sejauh Mana Anda Kenal Snek Tempatan Anda?</h1> */}
