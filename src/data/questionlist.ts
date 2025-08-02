@@ -30,7 +30,7 @@ export const questionlist: TQuestion[] = [
     options: ["3", "5", "7", "10"],
     answerAt: 2,
     marks: 1,
-    img: "/images/Oreo.png",
+    img: "/images/Eyeglass_Candy.png",
     alt: "Question Scene",
   },
   {

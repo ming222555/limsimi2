@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import Image from "next/image";
 
+import QuestionText from "./QuestionText";
+
 import {
   questionlist as list /* , listBackgrounds */,
 } from "../../data/questionlist";
@@ -274,19 +276,36 @@ export default function SectionQuestionSheet() {
               onClick={() => setIdx((prev) => prev + 1)}
             />
           </div>
+          <div
+            className="w-[15rem] mx-auto"
+            style={{ outline: "2px solid yellow" }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={list[idx].img}
+              alt={list[idx].alt}
+              width={0}
+              height={0}
+              loading="eager"
+              className="w-full h-auto bg-blue-100"
+            />
+          </div>
           {/* <div className="flex flex-col items-center h-full bg-amber-500"> */}
-          <div className="flex flex-col items-center bg-amber-500">
+          <QuestionText className="mx-auto box-content w-[15rem] px-6 py-3 my-4">
+            <span dangerouslySetInnerHTML={{ __html: list[idx].question }} />
+          </QuestionText>
+          <div className="flex flex-col gap-3 bg-amber-500">
             {/* <h1
               className="h2"
               dangerouslySetInnerHTML={{
                 __html: list[idx].title,
               }}
             /> */}
-            <div
-              className="rounded-lg overflow-hidden"
+            {/* <div
+              className="mt-4 mb-8 rounded-lg overflow-hidden"
               style={{ outline: "2px solid yellow" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={list[idx].img}
                 alt={list[idx].alt}
@@ -295,7 +314,7 @@ export default function SectionQuestionSheet() {
                 loading="eager"
                 className="w-full h-auto bg-blue-100"
               />
-            </div>
+            </div> */}
             {/* <QuestionPict src={list[idx].img} alt={list[idx].alt} /> */}
             {/* <QuestionText
               className="py-6"
@@ -303,51 +322,63 @@ export default function SectionQuestionSheet() {
                 __html: list[idx].question,
               }}
             /> */}
-            <p
+            {/* <p
               className="bg-green-100"
               dangerouslySetInnerHTML={{
                 __html: list[idx].question,
               }}
-            />
-            <div
-              className="flex flex-col gap-3"
-              style={{ outline: "6px solid black" }}
-            >
-              {!!list[idx].options.length &&
-                list[idx].options.map((option, index) =>
-                  !isViewSubmittedAnswers.current ? (
-                    <button
-                      key={`${list[idx].id + index}`}
-                      className="text-lg bg-gray-300 rounded-lg"
-                      onClick={() => onOptionSelected(idx, index)}
-                    >
-                      <span
-                        className="text-wrap"
-                        dangerouslySetInnerHTML={{
-                          __html: option,
-                        }}
-                      ></span>
-                    </button>
-                  ) : (
-                    <button
-                      key={`${list[idx].id + index}`}
-                      className="text-lg bg-gray-300 rounded-lg cursor-not-allowed"
-                      disabled
-                    >
-                      <span
-                        className={`text-wrap text-3xl ${
-                          index === list[idx].answerAt ? "underline" : ""
-                        } ${
-                          index === optionSelectedlist[idx] ? "bg-blue-400" : ""
-                        } cursor-not-allowed`}
-                        dangerouslySetInnerHTML={{
-                          __html: option,
-                        }}
-                      ></span>
-                    </button>
-                  )
-                )}
-            </div>
+            /> */}
+            {!!list[idx].options.length &&
+              list[idx].options.map((option, index) =>
+                !isViewSubmittedAnswers.current ? (
+                  <button
+                    key={`${list[idx].id + index}`}
+                    className="text-lg bg-white flex items-center rounded-full"
+                    onClick={() => onOptionSelected(idx, index)}
+                  >
+                    <div className="flex items-center justify-center w-[1.5rem] h-[1.5rem] m-[4px] rounded-full bg-[#b6d5c3]">
+                      <div className="flex items-center justify-center w-[1rem] h-[1rem] font-bold rounded-full bg-[#b6d5c3]">
+                        {index === 0
+                          ? "A"
+                          : index === 1
+                          ? "B"
+                          : index === 2
+                          ? "C"
+                          : index === 3
+                          ? "D"
+                          : index === 4
+                          ? "E"
+                          : index === 5
+                          ? "F"
+                          : "G"}
+                      </div>
+                    </div>
+                    <span
+                      className="grow text-left font-bold p-1 pr-2 text-wrap"
+                      dangerouslySetInnerHTML={{
+                        __html: option,
+                      }}
+                    ></span>
+                  </button>
+                ) : (
+                  <button
+                    key={`${list[idx].id + index}`}
+                    className="text-lg bg-gray-300 rounded-lg cursor-not-allowed"
+                    disabled
+                  >
+                    <span
+                      className={`text-wrap text-3xl ${
+                        index === list[idx].answerAt ? "underline" : ""
+                      } ${
+                        index === optionSelectedlist[idx] ? "bg-blue-400" : ""
+                      } cursor-not-allowed`}
+                      dangerouslySetInnerHTML={{
+                        __html: option,
+                      }}
+                    ></span>
+                  </button>
+                )
+              )}
           </div>
         </>
       ) : list.length === 0 ? null : (
