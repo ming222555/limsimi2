@@ -17,17 +17,19 @@ export default function QuizLayout({
           height={70}
           loading="eager"
           className="mx-auto"
-          style={{ outline: "1px solid green" }}
+          /* style={{ outline: "1px solid green" }} */
         />
       </nav>
       {/* <BackgroundProvider> */}
       {/* <BackgroundSection /> */}
       <main
         className=""
-        style={{
-          outline: "3px solid yellow",
-          /* background: "rgba(0,0,255, 0.1)", */
-        }}
+        style={
+          {
+            /* outline: "3px solid yellow", */
+            /* background: "rgba(0,0,255, 0.1)", */
+          }
+        }
       >
         {children}
       </main>

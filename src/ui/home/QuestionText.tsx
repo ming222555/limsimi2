@@ -22,8 +22,9 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
         width={0}
         height={0}
         loading="eager"
-        className="w-[3rem] h-[3rem] bg-blue-100 absolute top-0 left-0 -translate-[50%]"
-        style={{ outline: "1px solid blue" }}
+        className="w-[3rem] h-[3rem] absolute top-0 left-0 -translate-[50%]"
+        /* bg-blue-100 */
+        // style={{ outline: "1px solid blue" }}
       />
       {children}
     </p>

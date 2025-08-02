@@ -37,11 +37,12 @@ export default function RootLayout({
         }}
       >
         <div
-          style={{ background: "rgba(0,255,0,.25)" }}
+          // style={{ background: "rgba(0,255,0,.25)" }}
           className="w-[30rem] max-w-[30rem] h-full mx-auto relative"
         >
           {children}
-          <footer className="fixed bottom-0 w-[30rem] bg-amber-100 -z-1">
+          <footer className="fixed bottom-0 w-[30rem] -z-1">
+            {/* footer bg-amber-100 */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/ninjamart-van-on-road.png"
@@ -50,7 +51,7 @@ export default function RootLayout({
               height={0}
               loading="eager"
               className="w-full h-auto"
-              style={{ outline: "1px solid blue" }}
+              /* style={{ outline: "1px solid blue" }} */
             />
           </footer>
         </div>
