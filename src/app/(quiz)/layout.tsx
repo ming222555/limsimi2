@@ -8,7 +8,8 @@ export default function QuizLayout({
 }>) {
   return (
     <>
-      <nav style={{ outline: "1px solid black" }} className="pt-4">
+      <nav className="pt-4">
+        {/* nav style={{ outline: "1px solid black" }} */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/Logo_NJM@3x.png"

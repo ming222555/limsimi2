@@ -34,7 +34,7 @@ export default function Home() {
     <article
       // className="flex flex-col items-center text-center p-5"
       className="text-center p-5"
-      style={{ outline: "4px solid green" }}
+      // style={{ outline: "4px solid green" }}
     >
       {/* article h-full */}
       {!isStartQuestion ? (
