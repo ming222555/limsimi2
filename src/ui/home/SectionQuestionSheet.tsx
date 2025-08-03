@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext, useMemo } from "react";
 import Image from "next/image";
 
 import QuestionText from "./QuestionText";
@@ -6,6 +6,7 @@ import QuestionText from "./QuestionText";
 import {
   questionlist as list /* , listBackgrounds */,
 } from "../../data/questionlist";
+import type { TQuestion } from "../../data/questionlist";
 // import BigButton from "./BigButton";
 // import QuestionText from "./QuestionText";
 // import QuestionPict from "./QuestionPict";
@@ -189,6 +190,77 @@ function ShareSocial() {
   );
 }
 
+function QuestionOptions({
+  questionNum,
+  question,
+  optionSelected,
+  onOptionChange,
+}: {
+  questionNum: number;
+  question: TQuestion;
+  optionSelected: number;
+  onOptionChange: (questionNum: number, newOption: number) => void;
+}) {
+  const [myAnswer, setMyAnswer] = useState(optionSelected);
+
+  const questionNumRef = useRef(-999);
+  questionNumRef.current = questionNum;
+
+  useEffect(() => {
+    setMyAnswer(optionSelected);
+  }, [questionNum, optionSelected]);
+
+  useEffect(() => {
+    onOptionChange(questionNumRef.current, myAnswer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [myAnswer]);
+
+  const hoverQuestionOptionBackground = "hover:bg-[#d8e5d4]";
+  const hoverQuestionOptionForeground = "hover:bg-white";
+
+  return (
+    <>
+      {question.options.map((option, index) => (
+        <button
+          key={`${list[questionNum].id + index}`}
+          className={`text-lg flex items-center rounded-full ${
+            myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
+          } ${hoverQuestionOptionBackground}`}
+          onClick={() => setMyAnswer(index)}
+        >
+          <div
+            className={`flex items-center justify-center w-[1.5rem] h-[1.5rem] m-[4px] rounded-full ${
+              myAnswer === index ? "bg-white" : "bg-[#b6d5c3]"
+            } ${hoverQuestionOptionForeground}`}
+          >
+            <div className="flex items-center justify-center w-[1rem] h-[1rem] font-extrabold rounded-full">
+              {index === 0
+                ? "A"
+                : index === 1
+                ? "B"
+                : index === 2
+                ? "C"
+                : index === 3
+                ? "D"
+                : index === 4
+                ? "E"
+                : index === 5
+                ? "F"
+                : "G"}
+            </div>
+          </div>
+          <span
+            className="grow text-left font-bold p-1 pr-2 text-wrap"
+            dangerouslySetInnerHTML={{
+              __html: option,
+            }}
+          ></span>
+        </button>
+      ))}
+    </>
+  );
+}
+
 export default function SectionQuestionSheet() {
   const [idx, setIdx] = useState(0);
 
@@ -197,9 +269,11 @@ export default function SectionQuestionSheet() {
 
   /////////////  const { setBackground } = useContext(BackgroundContext);
 
-  function onOptionSelected(questionNum: number, option: number) {
-    optionSelectedlist[questionNum] = option;
-  }
+  const onOptionSelected = useMemo(() => {
+    return function (questionNum: number, option: number) {
+      optionSelectedlist[questionNum] = option;
+    };
+  }, []);
 
   function onViewSubmittedAnswers() {
     isViewSubmittedAnswers.current = true;
@@ -294,7 +368,7 @@ export default function SectionQuestionSheet() {
           <QuestionText className="mx-auto box-content w-[15rem] px-6 py-3 my-4">
             <span dangerouslySetInnerHTML={{ __html: list[idx].question }} />
           </QuestionText>
-          <div className="flex flex-col gap-3 bg-amber-500">
+          <div className="flex flex-col gap-3">
             {/* <h1
               className="h2"
               dangerouslySetInnerHTML={{
@@ -328,7 +402,15 @@ export default function SectionQuestionSheet() {
                 __html: list[idx].question,
               }}
             /> */}
-            {!!list[idx].options.length &&
+            {!!list[idx].options.length && (
+              <QuestionOptions
+                questionNum={idx}
+                question={list[idx]}
+                optionSelected={optionSelectedlist[idx]}
+                onOptionChange={onOptionSelected}
+              />
+            )}
+            {/* {!!list[idx].options.length &&
               list[idx].options.map((option, index) =>
                 !isViewSubmittedAnswers.current ? (
                   <button
@@ -378,7 +460,7 @@ export default function SectionQuestionSheet() {
                     ></span>
                   </button>
                 )
-              )}
+              )} */}
           </div>
         </>
       ) : list.length === 0 ? null : (

@@ -1,4 +1,4 @@
-type TQuestion = {
+export type TQuestion = {
   id: number;
   title: string;
   question: string;

@@ -5,7 +5,6 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
   const propsClassName = className === undefined ? "" : className;
 
   return (
-    // <p className={"text-3xl text-[#ffffff] " + propsClassName} {...rest}>
     <p
       className={
         "text-xl font-bold text-[#000000] bg-[#ffffff] relative " +
