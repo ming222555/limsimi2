@@ -420,8 +420,9 @@ export default function SectionQuestionSheet() {
             />
           </div>
           <div
-            className="w-[15rem] mx-auto"
-            style={{ outline: "2px solid yellow" }}
+            // className="w-[15rem] mx-auto"
+            className={`${list[idx].imgWidthTailwind} mx-auto`}
+            // style={{ outline: "2px solid yellow" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -430,7 +431,8 @@ export default function SectionQuestionSheet() {
               width={0}
               height={0}
               loading="eager"
-              className="w-full h-auto bg-blue-100"
+              // className="w-full h-auto bg-blue-100"
+              className="w-full h-auto"
             />
           </div>
           {/* <div className="flex flex-col items-center h-full bg-amber-500"> */}

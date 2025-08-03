@@ -7,7 +7,36 @@ export type TQuestion = {
   marks: number;
   img: string;
   alt: string;
+  imgWidthTailwind: string;
 };
+
+// SectionQuestionSheet
+//
+// <div
+// className="w-[15rem] mx-auto"
+// style={{ outline: "2px solid yellow" }}
+// >
+// {/* eslint-disable-next-line @next/next/no-img-element */}
+// <img
+//   src={list[idx].img}
+//   alt={list[idx].alt}
+//   width={0}
+//   height={0}
+//   loading="eager"
+//   className="w-full h-auto bg-blue-100"
+// />
+// </div>
+//
+// w-[14rem] eyeglass candy
+// w-[14rem] coki coki
+// w-[16rem] super ring
+// w-[14rem] julie
+// w-[14rem] yupi burger
+// w-[13rem] gem biskit
+// w-[10rem] hawthorne
+// w-[14rem] oreo
+// w-[15rem] bika
+// w-[15rem] miao miao sotong
 
 export const listBackgrounds: string[] = [
   "bg-[url(/eyeglass-candy.jpg)]",
@@ -32,6 +61,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Eyeglass_Candy.png",
     alt: "Eyeglass Candy",
+    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 2,
@@ -47,6 +77,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Choki_Choki.png",
     alt: "Choki Choki",
+    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 3,
@@ -62,6 +93,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/super_ring.png",
     alt: "Super Ring",
+    imgWidthTailwind: "w-[16rem]",
   },
   {
     id: 4,
@@ -77,6 +109,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/julie_peanut_butter.png",
     alt: "Julie’s Peanut Butter Sandwich",
+    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 5,
@@ -92,6 +125,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Yupi_Burger.png",
     alt: "Yupi Burger",
+    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 6,
@@ -102,6 +136,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Ice_Gem_Biscuit.png",
     alt: "Biskuit Ais Jem",
+    imgWidthTailwind: "w-[13rem]",
   },
   {
     id: 7,
@@ -118,6 +153,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/hawthorn.png",
     alt: "Haw Flakes",
+    imgWidthTailwind: "w-[10rem]",
   },
   {
     id: 8,
@@ -133,6 +169,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Oreo.png",
     alt: "Oreo Vanilla",
+    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 9,
@@ -148,6 +185,7 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/bika_keropok.png",
     alt: "BIKA Keropok",
+    imgWidthTailwind: "w-[15rem]",
   },
   {
     id: 10,
@@ -158,5 +196,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Miaow_Miaow_Sotong.png",
     alt: "Miaow Miaow Snek Sotong",
+    imgWidthTailwind: "w-[15rem]",
   },
 ];
