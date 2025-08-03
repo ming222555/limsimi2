@@ -35,7 +35,7 @@ function GradeResult({ score }: { score: number }) {
     <div>
       {score > 8 ? (
         <>
-          <Image
+          {/* <Image
             src="/trophy-svgrepo-com.svg"
             alt="Trophy for excellent grade"
             width={100}
@@ -47,11 +47,25 @@ function GradeResult({ score }: { score: number }) {
             Anda memang kenal keropok dan sotong anda, dan boleh beza antara
             snek zaman kanak-kanak dengan yang moden. Anda memang pakar snek
             Malaysia sejati. Restock dengan Ninja Mart sekarang!
-          </p>
+          </p> */}
+          <Image
+            src="/images/Rating-7@3x.png"
+            alt="grade 9-10"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
+          <Image
+            src="/images/Result-9-10@3x.png"
+            alt="grade 9-10"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
         </>
       ) : score > 5 ? (
         <>
-          <Image
+          {/* <Image
             src="/cookie-svgrepo-com.svg"
             alt="Cookie for good grade"
             width={100}
@@ -63,11 +77,25 @@ function GradeResult({ score }: { score: number }) {
             Jelas sekali anda membesar dengan snek kegemaran ni. Anda memang
             tahu mana satu yang padu — tinggal beberapa gigitan lagi untuk capai
             tahap ‘OG’. Terokai senarai penuh snek dan manisan di Ninja Mart
-          </p>
+          </p> */}
+          <Image
+            src="/images/Rating-8@3x.png"
+            alt="grade 6-8"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
+          <Image
+            src="/images/Result-6-8@3x.png"
+            alt="grade 6-8"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
         </>
       ) : score > 2 ? (
         <>
-          <Image
+          {/* <Image
             src="/confused-emoji-svgrepo-com.svg"
             alt="Puzzled expression for average grade"
             width={100}
@@ -78,11 +106,25 @@ function GradeResult({ score }: { score: number }) {
           <p className="">
             Anda dah rasa beberapa snek klasik, tapi skill snek anda masih boleh
             diasah. Jom terokai senarai penuh snek dan manisan di Ninja Mart!
-          </p>
+          </p> */}
+          <Image
+            src="/images/Rating-9@3x.png"
+            alt="grade 3-5"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
+          <Image
+            src="/images/Result-3-5@3x.png"
+            alt="grade 3-5"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
         </>
       ) : (
         <>
-          <Image
+          {/* <Image
             src="/happy-emoji-svgrepo-com.svg"
             alt="Happy expression for poor grade"
             width={100}
@@ -93,7 +135,21 @@ function GradeResult({ score }: { score: number }) {
           <p className="">
             Nampaknya dah tiba masa untuk kelas snek! Jangan risau, Ninja Mart
             ada semua snek ni untuk anda terokai.
-          </p>
+          </p> */}
+          <Image
+            src="/images/Rating-10@3x.png"
+            alt="grade 0-2"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
+          <Image
+            src="/images/Result-0-2@3x.png"
+            alt="grade 0-2"
+            width={200}
+            height={200}
+            className="w-[200px] h-auto m-auto"
+          />
         </>
       )}
     </div>
@@ -551,8 +607,8 @@ export default function SectionQuestionSheet() {
         </>
       ) : list.length === 0 ? null : (
         <>
-          <h1>Max Score: {MAX_SCORE}</h1>
-          <h2 className="">Your Score: {totalScore.current}</h2>
+          {/* <h1>Max Score: {MAX_SCORE}</h1>
+          <h2 className="">Your Score: {totalScore.current}</h2> */}
           <GradeResult score={totalScore.current} />
           {totalScore.current < MAX_SCORE ? (
             <button className="" onClick={onRetakeQuiz}>
