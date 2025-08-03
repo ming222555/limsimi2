@@ -26,7 +26,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/4_question-Three.jpg"
+          content="http://forfbshare.s3-website-ap-southeast-1.amazonaws.com/bika_keropok.png"
         />
         <meta property="og:url" content="https://limsimi2.vercel.app/" />
       </head>
