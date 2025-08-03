@@ -610,16 +610,36 @@ export default function SectionQuestionSheet() {
           {/* <h1>Max Score: {MAX_SCORE}</h1>
           <h2 className="">Your Score: {totalScore.current}</h2> */}
           <GradeResult score={totalScore.current} />
-          {totalScore.current < MAX_SCORE ? (
+          {/* <button onClick={onViewSubmittedAnswers}>ViewSubmittedAnswers</button> */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/Button-Semak@3x.png"
+            alt="Semak"
+            width={0}
+            height={0}
+            loading="eager"
+            className="w-[12rem] h-auto mx-auto mt-6"
+            role="button"
+            onClick={onViewSubmittedAnswers}
+          />
+          {/* {totalScore.current < MAX_SCORE ? (
             <button className="" onClick={onRetakeQuiz}>
               Retake Quiz
             </button>
-          ) : null}
+          ) : null} */}
+          {/* <button className="" onClick={onRetakeQuiz}>
+            Retake Quiz
+          </button> */}
+          <button
+            className="w-[12rem] text-xl font-bold text-[#f06a69] bg-[#fcf8f5] shadow-[0_8px_8px_rgba(0,0,0,0.25)] self-center px-5 py-3 mt-5 rounded-full"
+            onClick={onRetakeQuiz}
+          >
+            Retake Quiz
+          </button>
           <div className="flex justify-end">
             <ShareSocial />
           </div>
-          <button onClick={onViewSubmittedAnswers}>ViewSubmittedAnswers</button>
-          <div>{optionSelectedlist}</div>
+          {/* <div>{optionSelectedlist}</div> */}
         </>
       )}
     </>

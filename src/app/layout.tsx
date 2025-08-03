@@ -4,7 +4,7 @@ import { inter } from "../assets/fonts/inter/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Snacko snackkie",
+  title: "JOM Quiz",
   description: "Quiz on your knowledge of Malaysian snacks",
 };
 
@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Snacko snackkie" />
+        <meta property="og:title" content="JOM Quiz" />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
