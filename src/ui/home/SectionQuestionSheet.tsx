@@ -283,7 +283,7 @@ function QuestionOptionsReadonly({
           key={`${list[questionNum].id + index}`}
           className={`text-lg flex items-center rounded-full ${
             myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
-          } cursor-not-allowed`}
+          } cursor-not-allowed relative`}
           disabled
         >
           <div
@@ -313,6 +313,17 @@ function QuestionOptionsReadonly({
               __html: option,
             }}
           ></span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/star.svg"
+            alt="this the correct answer"
+            width={25}
+            height={25}
+            loading="eager"
+            className={`w-[1rem] h-[1rem] absolute -translate-x-[100%] ${
+              index === question.answerAt ? "block" : "hidden"
+            }`}
+          />
         </button>
       ))}
     </>
