@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 
 import { inter } from "../assets/fonts/inter/fonts";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "JOM Quiz",
@@ -17,7 +24,6 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:title" content="JOM Quiz" />
         <meta property="og:type" content="website" />
         <meta
