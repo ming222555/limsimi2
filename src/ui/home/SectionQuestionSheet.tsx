@@ -454,10 +454,13 @@ export default function SectionQuestionSheet() {
             Q{idx + 1}/{list.length}
           </span>
         </div> */}
+          <span className="absolute top-0 left-0 translate-y-[0%] font-bold text-sm text-white bg-black mt-[3px] p-[2px] rounded-lg">
+            q{idx + 1} / {list.length}
+          </span>
           <div
             className={`${
               idx <= 0 ? "hidden" : "block"
-            } absolute top-0 left-0 translate-y-[100%]`}
+            } absolute top-0 left-0 translate-y-[140%]`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -474,7 +477,7 @@ export default function SectionQuestionSheet() {
           <div
             className={`${
               idx >= list.length ? "hidden" : "block"
-            } absolute top-0 right-0 translate-y-[100%]`}
+            } absolute top-0 right-0 translate-y-[140%]`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
