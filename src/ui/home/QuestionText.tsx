@@ -7,7 +7,7 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
   return (
     <p
       className={
-        "text-xl font-bold text-[#000000] bg-[#ffffff] relative " +
+        "text-md font-bold text-[#000000] bg-[#ffffff] relative " +
         propsClassName
       }
       {...rest}

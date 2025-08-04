@@ -44,10 +44,10 @@ export default function RootLayout({
       >
         <div
           // style={{ background: "rgba(0,255,0,.25)" }}
-          className="w-[30rem] max-w-[30rem] h-full mx-auto relative"
+          className="w-[24rem] max-w-[24rem] h-full mx-auto relative"
         >
           {children}
-          <footer className="fixed bottom-0 w-[30rem] -z-1">
+          <footer className="fixed bottom-0 w-[24rem] -z-1">
             {/* footer bg-amber-100 */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

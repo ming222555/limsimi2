@@ -279,17 +279,17 @@ function QuestionOptions({
       {question.options.map((option, index) => (
         <button
           key={`${list[questionNum].id + index}`}
-          className={`text-lg flex items-center rounded-full ${
+          className={`text-md flex items-center rounded-full ${
             myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
           } ${hoverQuestionOptionBackground}`}
           onClick={() => setMyAnswer(index)}
         >
           <div
-            className={`flex items-center justify-center w-[1.5rem] h-[1.5rem] m-[4px] rounded-full ${
+            className={`flex items-center justify-center w-[1.4rem] h-[1.4rem] m-[4px] rounded-full ${
               myAnswer === index ? "bg-white" : "bg-[#b6d5c3]"
             } ${hoverQuestionOptionForeground}`}
           >
-            <div className="flex items-center justify-center w-[1rem] h-[1rem] font-extrabold rounded-full">
+            <div className="flex items-center justify-center w-[0.6rem] h-[0.6rem] font-extrabold rounded-full">
               {index === 0
                 ? "A"
                 : index === 1
@@ -337,17 +337,17 @@ function QuestionOptionsReadonly({
       {question.options.map((option, index) => (
         <button
           key={`${list[questionNum].id + index}`}
-          className={`text-lg flex items-center rounded-full ${
+          className={`text-md flex items-center rounded-full ${
             myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
           } cursor-not-allowed relative`}
           disabled
         >
           <div
-            className={`flex items-center justify-center w-[1.5rem] h-[1.5rem] m-[4px] rounded-full ${
+            className={`flex items-center justify-center w-[1.4rem] h-[1.4rem] m-[4px] rounded-full ${
               myAnswer === index ? "bg-white" : "bg-[#b6d5c3]"
             }`}
           >
-            <div className="flex items-center justify-center w-[1rem] h-[1rem] font-extrabold rounded-full">
+            <div className="flex items-center justify-center w-[0.6rem] h-[0.6rem] font-extrabold rounded-full">
               {index === 0
                 ? "A"
                 : index === 1
