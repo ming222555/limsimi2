@@ -251,11 +251,13 @@ function QuestionOptions({
   question,
   optionSelected,
   onOptionChange,
+  gotoNextQuestion,
 }: {
   questionNum: number;
   question: TQuestion;
   optionSelected: number;
   onOptionChange: (questionNum: number, newOption: number) => void;
+  gotoNextQuestion: () => void;
 }) {
   const [myAnswer, setMyAnswer] = useState(optionSelected);
 
@@ -282,7 +284,12 @@ function QuestionOptions({
           className={`text-md flex items-center rounded-full ${
             myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
           } ${hoverQuestionOptionBackground}`}
-          onClick={() => setMyAnswer(index)}
+          onClick={() => {
+            setMyAnswer(index);
+            setTimeout(() => {
+              gotoNextQuestion();
+            }, 0);
+          }}
         >
           <div
             className={`flex items-center justify-center w-[1.4rem] h-[1.4rem] m-[4px] rounded-full ${
@@ -397,6 +404,12 @@ export default function SectionQuestionSheet() {
   const onOptionSelected = useMemo(() => {
     return function (questionNum: number, option: number) {
       optionSelectedlist[questionNum] = option;
+    };
+  }, []);
+
+  const gotoNextQuestion = useMemo(() => {
+    return function () {
+      setIdx((prev) => prev + 1);
     };
   }, []);
 
@@ -536,6 +549,7 @@ export default function SectionQuestionSheet() {
                   question={list[idx]}
                   optionSelected={optionSelectedlist[idx]}
                   onOptionChange={onOptionSelected}
+                  gotoNextQuestion={gotoNextQuestion}
                 />
               ) : (
                 <QuestionOptionsReadonly
