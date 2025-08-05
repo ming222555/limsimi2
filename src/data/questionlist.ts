@@ -7,7 +7,6 @@ export type TQuestion = {
   marks: number;
   img: string;
   alt: string;
-  imgWidthTailwind: string;
 };
 
 // SectionQuestionSheet
@@ -61,7 +60,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Eyeglass@3x.png",
     alt: "Eyeglass Candy",
-    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 2,
@@ -77,7 +75,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Choki@3x.png",
     alt: "Choki Choki",
-    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 3,
@@ -93,7 +90,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Supering@3x.png",
     alt: "Super Ring",
-    imgWidthTailwind: "w-[16rem]",
   },
   {
     id: 4,
@@ -109,7 +105,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Julies@3x.png",
     alt: "Julie’s Peanut Butter Sandwich",
-    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 5,
@@ -125,7 +120,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Yupi@3x.png",
     alt: "Yupi Burger",
-    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 6,
@@ -136,7 +130,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/ice-gem@3x.png",
     alt: "Biskuit Ais Jem",
-    imgWidthTailwind: "w-[13rem]",
   },
   {
     id: 7,
@@ -153,7 +146,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Hawflakes@3x.png",
     alt: "Haw Flakes",
-    imgWidthTailwind: "w-[10rem]",
   },
   {
     id: 8,
@@ -169,7 +161,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Oreo@3x.png",
     alt: "Oreo Vanilla",
-    imgWidthTailwind: "w-[14rem]",
   },
   {
     id: 9,
@@ -185,7 +176,6 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Bika@3x.png",
     alt: "BIKA Keropok",
-    imgWidthTailwind: "w-[15rem]",
   },
   {
     id: 10,
@@ -196,6 +186,5 @@ export const questionlist: TQuestion[] = [
     marks: 1,
     img: "/images/Miaow@3x.png",
     alt: "Miaow Miaow Snek Sotong",
-    imgWidthTailwind: "w-[15rem]",
   },
 ];
