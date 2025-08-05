@@ -32,125 +32,50 @@ function computeTotalScore() {
 
 function GradeResult({ score }: { score: number }) {
   return (
-    <div>
+    <div
+      style={{ display: "block", width: 320, height: 475 }}
+      className="mx-auto"
+    >
       {score > 8 ? (
-        <>
-          {/* <Image
-            src="/trophy-svgrepo-com.svg"
-            alt="Trophy for excellent grade"
-            width={100}
-            height={100}
-            className="m-auto"
-          />
-          <p className="h3">Snek Legenda</p>
-          <p className="">
-            Anda memang kenal keropok dan sotong anda, dan boleh beza antara
-            snek zaman kanak-kanak dengan yang moden. Anda memang pakar snek
-            Malaysia sejati. Restock dengan Ninja Mart sekarang!
-          </p> */}
-          <Image
-            src="/images/Rating-7@3x.png"
-            alt="grade 9-10"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-          <Image
-            src="/images/Result-9-10@3x.png"
-            alt="grade 9-10"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-        </>
+        <Image
+          src="/images/Rating-7@3x.png"
+          alt="grade 9-10"
+          width={991}
+          height={1471}
+          priority
+          layout="responsive"
+          sizes="(min-width: 1px) 320px"
+        />
       ) : score > 5 ? (
-        <>
-          {/* <Image
-            src="/cookie-svgrepo-com.svg"
-            alt="Cookie for good grade"
-            width={100}
-            height={100}
-            className="m-auto"
-          />
-          <p className="h3">Pakar Snek</p>
-          <p className="">
-            Jelas sekali anda membesar dengan snek kegemaran ni. Anda memang
-            tahu mana satu yang padu — tinggal beberapa gigitan lagi untuk capai
-            tahap ‘OG’. Terokai senarai penuh snek dan manisan di Ninja Mart
-          </p> */}
-          <Image
-            src="/images/Rating-8@3x.png"
-            alt="grade 6-8"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-          <Image
-            src="/images/Result-6-8@3x.png"
-            alt="grade 6-8"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-        </>
+        <Image
+          src="/images/Rating-8@3x.png"
+          alt="grade 6-8"
+          width={991}
+          height={1471}
+          priority
+          layout="responsive"
+          sizes="(min-width: 1px) 320px"
+        />
       ) : score > 2 ? (
-        <>
-          {/* <Image
-            src="/confused-emoji-svgrepo-com.svg"
-            alt="Puzzled expression for average grade"
-            width={100}
-            height={100}
-            className="m-auto"
-          />
-          <p className="h3">Penjelajah Snek</p>
-          <p className="">
-            Anda dah rasa beberapa snek klasik, tapi skill snek anda masih boleh
-            diasah. Jom terokai senarai penuh snek dan manisan di Ninja Mart!
-          </p> */}
-          <Image
-            src="/images/Rating-9@3x.png"
-            alt="grade 3-5"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-          <Image
-            src="/images/Result-3-5@3x.png"
-            alt="grade 3-5"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-        </>
+        <Image
+          src="/images/Rating-9@3x.png"
+          alt="grade 3-5"
+          width={991}
+          height={1471}
+          priority
+          layout="responsive"
+          sizes="(min-width: 1px) 320px"
+        />
       ) : (
-        <>
-          {/* <Image
-            src="/happy-emoji-svgrepo-com.svg"
-            alt="Happy expression for poor grade"
-            width={100}
-            height={100}
-            className="m-auto"
-          />
-          <p className="h3">Noob Snek</p>
-          <p className="">
-            Nampaknya dah tiba masa untuk kelas snek! Jangan risau, Ninja Mart
-            ada semua snek ni untuk anda terokai.
-          </p> */}
-          <Image
-            src="/images/Rating-10@3x.png"
-            alt="grade 0-2"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-          <Image
-            src="/images/Result-0-2@3x.png"
-            alt="grade 0-2"
-            width={200}
-            height={200}
-            className="w-[200px] h-auto m-auto"
-          />
-        </>
+        <Image
+          src="/images/Rating-10@3x.png"
+          alt="grade 0-2"
+          width={991}
+          height={1471}
+          priority
+          layout="responsive"
+          sizes="(min-width: 1px) 320px"
+        />
       )}
     </div>
   );
@@ -180,22 +105,8 @@ function ShareSocial() {
     }
   }, []);
 
-  return isMobile ? (
+  return (
     <>
-      <a
-        href="whatsapp://send?text=https://limsimi2.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/icons8-whatsapp-48.png"
-          alt="whatsapp share"
-          width={48}
-          height={48}
-          loading="eager"
-        />
-      </a>
       <a
         href="https://www.facebook.com/sharer/sharer.php?u=https://limsimi2.vercel.app"
         target="_blank"
@@ -208,40 +119,43 @@ function ShareSocial() {
           width={48}
           height={48}
           loading="eager"
+          sizes="(min-width: 1px) 48px"
         />
       </a>
-    </>
-  ) : (
-    <>
-      <a
-        href="https://web.whatsapp.com/send?text=https://limsimi2.vercel.app"
-        data-action="share/whatsapp/share"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/icons8-whatsapp-48.png"
-          alt="whatsapp share"
-          width={48}
-          height={48}
-          loading="eager"
-        />
-      </a>
-      <a
-        href="https://www.facebook.com/sharer/sharer.php?u=https://limsimi2.vercel.app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/icons8-facebook-48.png"
-          alt="facebook share"
-          width={48}
-          height={48}
-          loading="eager"
-        />
-      </a>
+      {isMobile ? (
+        <a
+          href="whatsapp://send?text=https://limsimi2.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/icons8-whatsapp-48.png"
+            alt="whatsapp share"
+            width={48}
+            height={48}
+            loading="eager"
+            sizes="(min-width: 1px) 48px"
+          />
+        </a>
+      ) : (
+        <a
+          href="https://web.whatsapp.com/send?text=https://limsimi2.vercel.app"
+          data-action="share/whatsapp/share"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/icons8-whatsapp-48.png"
+            alt="whatsapp share"
+            width={48}
+            height={48}
+            loading="eager"
+            sizes="(min-width: 1px) 48px"
+          />
+        </a>
+      )}
     </>
   );
 }
@@ -628,35 +542,37 @@ export default function SectionQuestionSheet() {
           <h2 className="">Your Score: {totalScore.current}</h2> */}
           <GradeResult score={totalScore.current} />
           {/* <button onClick={onViewSubmittedAnswers}>ViewSubmittedAnswers</button> */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/Button-Semak@3x.png"
-            alt="Semak"
-            width={0}
-            height={0}
-            loading="eager"
-            className="w-[12rem] h-auto mx-auto mt-6"
-            role="button"
-            onClick={onViewSubmittedAnswers}
-          />
-          {/* {totalScore.current < MAX_SCORE ? (
+          <div className="flex justify-between mt-3 rounded-full bg-[rgba(0,0,0,.16)]">
+            <Image
+              src="/images/Button Semak_1@3x.png"
+              alt="Semak Jawapan"
+              width={200}
+              height={52}
+              loading="eager"
+              layout="fixed"
+              sizes="(min-width: 1px) 200px"
+              role="button"
+              onClick={onViewSubmittedAnswers}
+            />
+            {/* {totalScore.current < MAX_SCORE ? (
             <button className="" onClick={onRetakeQuiz}>
               Retake Quiz
             </button>
           ) : null} */}
-          {/* <button className="" onClick={onRetakeQuiz}>
+            {/* <button className="" onClick={onRetakeQuiz}>
             Retake Quiz
           </button> */}
-          <button
+            {/* <button
             className="w-[12rem] text-xl font-bold text-[#f06a69] bg-[#fcf8f5] shadow-[0_8px_8px_rgba(0,0,0,0.25)] self-center px-5 py-3 mt-5 rounded-full"
             onClick={onRetakeQuiz}
           >
             Retake Quiz
-          </button>
-          <div className="flex justify-end">
+          </button> */}
+            {/* <div className="flex justify-end"> */}
             <ShareSocial />
+            {/* </div> */}
+            {/* <div>{optionSelectedlist}</div> */}
           </div>
-          {/* <div>{optionSelectedlist}</div> */}
         </>
       )}
     </>

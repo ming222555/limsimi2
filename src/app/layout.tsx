@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import Image from "next/image";
 
 import { inter } from "../assets/fonts/inter/fonts";
 import "./globals.css";
@@ -49,16 +50,26 @@ export default function RootLayout({
           {children}
           <footer className="fixed bottom-0 w-[24rem] -z-1">
             {/* footer bg-amber-100 */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {/* <img
               src="/images/ninjamart-van-on-road.png"
               alt="ninjamart van on road"
               width={0}
               height={0}
               loading="eager"
               className="w-full h-auto"
-              /* style={{ outline: "1px solid blue" }} */
-            />
+              // style={{ outline: "1px solid blue" }}
+            /> */}
+            <div style={{ display: "block", width: 384, height: 194 }}>
+              <Image
+                src="/images/ninjamart-van-on-road.png"
+                alt="ninjamart van on road"
+                width={1801}
+                height={913}
+                priority
+                layout="responsive"
+                sizes="(min-width: 1px) 384px"
+              />
+            </div>
           </footer>
         </div>
       </body>
