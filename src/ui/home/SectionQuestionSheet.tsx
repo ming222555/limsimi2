@@ -406,12 +406,15 @@ export default function SectionQuestionSheet() {
             />
           </div>
           <div
-            // className="w-[15rem] mx-auto"
-            className={`${list[idx].imgWidthTailwind} mx-auto`}
-            // style={{ outline: "2px solid yellow" }}
+            //// className="w-[15rem] mx-auto"
+            // className={`${list[idx].imgWidthTailwind} mx-auto`}
+            //// style={{ outline: "2px solid yellow" }}
+            style={{ display: "block", width: 240, height: 168 }}
+            // w-[15rem] 240px
+            className="mx-auto"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {}
+            {/* <img
               src={list[idx].img}
               alt={list[idx].alt}
               width={0}
@@ -419,6 +422,15 @@ export default function SectionQuestionSheet() {
               loading="eager"
               // className="w-full h-auto bg-blue-100"
               className="w-full h-auto"
+            /> */}
+            <Image
+              src={list[idx].img}
+              alt={list[idx].alt}
+              width={751}
+              height={526}
+              priority
+              layout="responsive"
+              sizes="(min-width: 1px) 240px"
             />
           </div>
           {/* <div className="flex flex-col items-center h-full bg-amber-500"> */}
@@ -544,7 +556,7 @@ export default function SectionQuestionSheet() {
           {/* <button onClick={onViewSubmittedAnswers}>ViewSubmittedAnswers</button> */}
           <div className="flex justify-between mt-3 rounded-full bg-[rgba(0,0,0,.16)]">
             <Image
-              src="/images/Button Semak_1@3x.png"
+              src="/images/Button-Semak_1@3x.png"
               alt="Semak Jawapan"
               width={200}
               height={52}

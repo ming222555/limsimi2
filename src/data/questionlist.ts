@@ -134,7 +134,7 @@ export const questionlist: TQuestion[] = [
     options: ["England", "Indonesia", "Sepanyol", "Thailand"],
     answerAt: 0,
     marks: 1,
-    img: "/images/ice gem@3x.png",
+    img: "/images/ice-gem@3x.png",
     alt: "Biskuit Ais Jem",
     imgWidthTailwind: "w-[13rem]",
   },
