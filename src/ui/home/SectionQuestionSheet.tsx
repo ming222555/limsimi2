@@ -285,13 +285,14 @@ function QuestionOptionsReadonly({
             </div>
           </div>
           <span
-            className="grow text-left font-bold p-1 pr-2 text-wrap cursor-not-allowed"
+            className={`grow text-left ${
+              index === question.answerAt ? "text-[#F16A6A]" : ""
+            } font-bold p-1 pr-2 text-wrap cursor-not-allowed`}
             dangerouslySetInnerHTML={{
               __html: option,
             }}
           ></span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          {/* <img
             src="/images/star.svg"
             alt="this the correct answer"
             width={25}
@@ -300,7 +301,17 @@ function QuestionOptionsReadonly({
             className={`w-[1rem] h-[1rem] absolute -translate-x-[100%] ${
               index === question.answerAt ? "block" : "hidden"
             }`}
-          />
+          /> */}
+          <span className="order-first absolute -translate-x-[100%]">
+            {/* absolute -translate-x-[100%] */}
+            {`${
+              myAnswer !== index
+                ? ""
+                : index === question.answerAt
+                ? "✅"
+                : "❌"
+            }`}
+          </span>
         </button>
       ))}
     </>
