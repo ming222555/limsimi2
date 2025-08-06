@@ -17,6 +17,7 @@ export default function QuizLayout({
           width={100}
           height={70}
           loading="eager"
+          sizes="(min-width: 1px) 100px"
           className="mx-auto"
           /* style={{ outline: "1px solid green" }} */
         />

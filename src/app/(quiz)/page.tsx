@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 // import SectionCover from "../../ui/home/SectionCover";
@@ -45,14 +46,25 @@ export default function Home() {
           >
             MULA
           </button> */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          {/* <img
             src="/images/mula.png"
             alt="start"
             width={0}
             height={0}
             loading="eager"
             className="w-[12rem] h-auto mx-auto mt-6"
+            role="button"
+            onClick={() => setIsStartQuestion(true)}
+          /> */}
+          <Image
+            src="/images/mula.png"
+            alt="start"
+            width={192}
+            height={48}
+            loading="eager"
+            layout="fixed"
+            sizes="(min-width: 1px) 192px"
+            className="mx-auto mt-6"
             role="button"
             onClick={() => setIsStartQuestion(true)}
           />
