@@ -302,7 +302,7 @@ function QuestionOptionsReadonly({
               index === question.answerAt ? "block" : "hidden"
             }`}
           /> */}
-          <span className="order-first absolute -translate-x-[100%]">
+          <span className="absolute -translate-x-[100%]">
             {/* absolute -translate-x-[100%] */}
             {`${
               myAnswer !== index
@@ -379,9 +379,20 @@ export default function SectionQuestionSheet() {
             Q{idx + 1}/{list.length}
           </span>
         </div> */}
-          <span className="absolute top-0 left-0 translate-y-[0%] font-bold text-sm text-white bg-black mt-[3px] p-[2px] rounded-lg">
+          {/* <span className="absolute top-0 left-0 translate-y-[0%] font-bold text-sm text-white bg-black mt-[3px] p-[2px] rounded-lg">
             q{idx + 1} / {list.length}
-          </span>
+          </span> */}
+          <Image
+            src={`/images/Question-Number-${idx + 1}.png`}
+            alt="Question Number"
+            width={64}
+            height={34}
+            loading="eager"
+            layout="fixed"
+            sizes="(min-width: 1px) 64px"
+            className="absolute top-0 left-0"
+            // rounded-lg
+          />
           <div
             className={`${
               idx <= 0 ? "hidden" : "block"
