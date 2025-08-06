@@ -33,7 +33,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://limsimi2.vercel.app/images/bika_keropok.png"
+          content="https://limsimi2.vercel.app/images/Visual-WS-100.jpg"
         />
         <meta property="og:url" content="https://limsimi2.vercel.app/" />
       </head>
