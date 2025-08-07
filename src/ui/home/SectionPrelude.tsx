@@ -18,7 +18,7 @@ export default function SectionPrelude({
         loading="eager"
         className="w-full h-auto mx-auto -mt-5"
       /> */}
-      <div style={{ display: "block", width: 384, height: 285 }}>
+      <div style={{ display: "block", width: 363, height: 269 }}>
         <Image
           src="/images/Tittle@3x.png"
           alt="jom kuiz"
@@ -26,7 +26,7 @@ export default function SectionPrelude({
           height={688}
           priority
           layout="responsive"
-          sizes="(min-width: 1px) 384px"
+          sizes="(min-width: 1px) 363px"
         />
       </div>
       {/* <QuestionText className="self-center box-content w-[15rem] px-6 py-3 mt-3 mb-6"> */}
