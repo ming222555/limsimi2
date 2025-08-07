@@ -33,9 +33,14 @@ function computeTotalScore() {
 function GradeResult({ score }: { score: number }) {
   return (
     <div
-      style={{ display: "block", width: 320, height: 475 }}
-      className="mx-auto"
+      style={{
+        display: "block",
+        width: 320,
+        height: 475,
+      }}
+      className="mx-auto relative"
     >
+      <div className="absolute -z-1 top-[50%] left-[50%] -translate-[50%] lds-dual-ring"></div>
       {score > 8 ? (
         <Image
           src="/images/Rating-7@3x.png"
