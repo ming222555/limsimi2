@@ -264,7 +264,11 @@ function QuestionOptionsReadonly({
         <button
           key={`${list[questionNum].id + index}`}
           className={`text-md flex items-center rounded-full ${
-            myAnswer === index ? "bg-[#b6d5c3]" : "bg-white"
+            index === question.answerAt
+              ? "bg-[#FDE9E8]"
+              : myAnswer === index
+              ? "bg-[#b6d5c3]"
+              : "bg-white"
           } cursor-not-allowed relative`}
           disabled
         >
@@ -290,9 +294,7 @@ function QuestionOptionsReadonly({
             </div>
           </div>
           <span
-            className={`grow text-left ${
-              index === question.answerAt ? "text-[#F16A6A]" : ""
-            } font-bold p-1 pr-2 text-wrap cursor-not-allowed`}
+            className={`grow text-left font-bold p-1 pr-2 text-wrap cursor-not-allowed`}
             dangerouslySetInnerHTML={{
               __html: option,
             }}
