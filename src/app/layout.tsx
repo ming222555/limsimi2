@@ -12,8 +12,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "JOM Quiz",
-  description: "Quiz on your knowledge of Malaysian snacks",
+  title: "SapotLokal - Sokong Snek Tempatan Kegemaran Kita",
+  description:
+    "Dari Yupi Burger ke Super Ring, snek-snek ini membentuk zaman kanak-kanak kita. Jom jawab kuiz ini dan tengok sejauh mana anda betul-betul kenal snek anda!",
 };
 
 export default function RootLayout({
@@ -25,11 +26,14 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <meta property="og:title" content="JOM Quiz" />
+        <meta
+          property="og:title"
+          content="SapotLokal - Sokong Snek Tempatan Kegemaran Kita"
+        />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content="Quiz on your knowledge of Malaysian snacks"
+          content="Dari Yupi Burger ke Super Ring, snek-snek ini membentuk zaman kanak-kanak kita. Jom jawab kuiz ini dan tengok sejauh mana anda betul-betul kenal snek anda!"
         />
         <meta
           property="og:image"
