@@ -21,10 +21,13 @@ export default function QuestionText(props: ComponentPropsWithRef<"p">) {
       <img
         src="/images/question_mark.png"
         alt="question mark"
-        width={0}
-        height={0}
+        // w-[3.6rem]
+        width={57.6}
+        height={86}
         loading="eager"
-        className="w-[3.6rem] h-auto absolute top-0 left-0 -translate-[50%]"
+        sizes="(min-width: 1px) 57.6px"
+        // className="w-[3.6rem] h-auto absolute top-0 left-0 -translate-[50%]"
+        className="absolute top-0 left-0 -translate-[50%]"
       />
       {children}
     </p>
